@@ -34,7 +34,7 @@ int SceneController::Run()
 
 int SceneController::Init()
 {
-	nowScene = std::make_unique<TitleScene>();
+	nowScene = std::make_unique<EditScene>();
 
 	return 0;
 }
