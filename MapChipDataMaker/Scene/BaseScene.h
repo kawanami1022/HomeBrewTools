@@ -1,6 +1,8 @@
 #pragma once
 #include <cstdlib>
 #include <memory>
+#include "../Input/Mouse.h"
+
 //#define lpBaseScene std::unique_ptr<BaseScene>
 class BaseScene;
 using unique_Base = std::unique_ptr<BaseScene>;
@@ -14,6 +16,9 @@ public:
 	virtual bool sysInit() = 0;
 	BaseScene();
 	~BaseScene();
+protected:
+	std::unique_ptr<Controller> input;
 private:
+
 };
 

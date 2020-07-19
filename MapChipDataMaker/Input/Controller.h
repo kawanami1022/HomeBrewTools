@@ -1,17 +1,19 @@
 #pragma once
 #include <vector>
 
-enum class InputState
-{
-	Now,
-	Old,
-	MAX
-};
+
 
 class Controller
 {
 public:
+	void operator()() {
+		update();
+	}
 	virtual void setInputTbl()=0;
+	std::vector<int> inputTblNow_;
+	std::vector<int> inputTblOld_;
+
+protected:
 	virtual void update() = 0;
 private:
 	

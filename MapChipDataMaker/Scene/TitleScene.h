@@ -25,7 +25,7 @@ public:
     Vector2I ButtonSize;
     Vector2I RefDirPos;
     Vector2I RefDirSize;
-
+    
 private:
     std::unique_ptr<EditButton> EdtBtn;
     bool sysInit();

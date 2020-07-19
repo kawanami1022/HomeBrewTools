@@ -39,7 +39,9 @@
   <ItemGroup>
     <ClInclude Include="Input\Controller.h" />
     <ClInclude Include="Input\keyInput.h" />
+    <ClInclude Include="Input\InputID.h" />
     <ClInclude Include="Input\Mouse.h" />
+    <ClInclude Include="Input\MouseID.h" />
     <ClInclude Include="Obj\Actor\EditButton\EditButton.h" />
     <ClInclude Include="FileControl\detail\FileControl.h" />
     <ClInclude Include="FileControl\FileControl.h" />
