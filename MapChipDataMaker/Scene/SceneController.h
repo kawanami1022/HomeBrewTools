@@ -5,7 +5,7 @@
 #include <thread>
 #include <mutex>
 #include "BaseScene.h"
-#include "TitleScene.h"
+#include "EditScene.h"
 #define SCREEN_SIZE_X 1200
 #define SCREEN_SIZE_Y 800
 

@@ -15,16 +15,16 @@ public:
     ~EditScene();
 
 
-    Vector2I ToolBoxPos;
-    Vector2I ToolBoxSize;
-    Vector2I ChipGraphPos;
-    Vector2I ChipGraphSize;
-    Vector2I mapChipPos;
-    Vector2I mapChipSize;
-    Vector2I ButtonPos;
-    Vector2I ButtonSize;
-    Vector2I RefDirPos;
-    Vector2I RefDirSize;
+    Position2 ToolBoxPos;
+    Position2 ToolBoxSize;
+    Position2 ChipGraphPos;
+    Position2 ChipGraphSize;
+    Position2 mapChipPos;
+    Position2 mapChipSize;
+    Position2 ButtonPos;
+    Position2 ButtonSize;
+    Position2 RefDirPos;
+    Position2 RefDirSize;
     
 private:
     std::unique_ptr<EditButton> EdtBtn;

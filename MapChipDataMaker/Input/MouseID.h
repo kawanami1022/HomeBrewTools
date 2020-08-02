@@ -1,13 +1,14 @@
 #pragma once
-enum class MOUSE_ID
+#include <type_traits>
+enum class MouseID
 {
-	LEFT,
-	RIGHT,
+	Left,
+	Right,
 	MIDDLE,
-	MAX
+	Max
 };
 
-MOUSE_ID begin(MOUSE_ID) { return MOUSE_ID::LEFT; }
-MOUSE_ID end(MOUSE_ID) { return MOUSE_ID::MAX; }
-MOUSE_ID operator*(MOUSE_ID mouseID) { return mouseID; }
-MOUSE_ID operator++(MOUSE_ID& mouseID) { return mouseID = MOUSE_ID(std::underlying_type<MOUSE_ID>::type(mouseID) + 1); }
+static MouseID begin(MouseID) { return MouseID::Left; };
+static MouseID end(MouseID) { return MouseID::Max; };
+static MouseID operator++(MouseID& state) { return (state = MouseID(std::underlying_type<MouseID>::type(state) + 1)); };
+static MouseID operator*(MouseID state) { return state; }

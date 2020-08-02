@@ -36,9 +36,6 @@
     <ClCompile Include="Obj\Actor\Actor.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Scene\TitleScene.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="_debug\_DebugConOut.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -54,13 +51,13 @@
     <ClCompile Include="Obj\Actor\EditButton\EditButton.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Input\Controller.cpp">
+    <ClCompile Include="Scene\EditScene.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Input\keyInput.cpp">
+    <ClCompile Include="input\keyInput.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Input\Mouse.cpp">
+    <ClCompile Include="input\mouse.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
   </ItemGroup>
@@ -86,9 +83,6 @@
     <ClInclude Include="Vector2\Vector2.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Scene\TitleScene.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="_debug\_DebugConOut.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -107,19 +101,22 @@
     <ClInclude Include="Obj\Actor\EditButton\EditButton.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Input\Controller.h">
+    <ClInclude Include="Scene\EditScene.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Input\keyInput.h">
+    <ClInclude Include="input\controller.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Input\Mouse.h">
+    <ClInclude Include="input\InputID.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Input\InputID.h">
+    <ClInclude Include="input\keyInput.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Input\MouseID.h">
+    <ClInclude Include="input\mouse.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="input\mouseID.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

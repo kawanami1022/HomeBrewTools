@@ -174,8 +174,10 @@ inline bool Vector2<T>::operator==(Vector2& vec2)
 	return ((this->x == vec2.x) && (this->y == vec2.y));
 }
 
-using Vector2I = Vector2<int>;
+using Position2 = Vector2<int>;
 using Vector2L = Vector2<long>;
 using Vector2F = Vector2<float>;
 using Vector2D = Vector2<double>;
 using Vector2Sh = Vector2<short>;
+
+typedef Position2 Position2;

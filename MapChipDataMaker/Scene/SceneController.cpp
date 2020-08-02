@@ -16,6 +16,8 @@ int SceneController::Run()
 
 	// 描画先画面を裏画面にセット
 	SetDrawScreen(DX_SCREEN_BACK);
+	{
+
 	Init();
 	// ループ
 	while (ProcessMessage() == 0)
@@ -26,6 +28,7 @@ int SceneController::Run()
 		// 画面を初期化する
 	}
 
+	}
 
 	DxLib_End();				// ＤＸライブラリ使用の終了処理
 
