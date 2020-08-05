@@ -1,8 +1,10 @@
 #pragma once
+#include <array>
 #include <map>
 #include <vector>
+#include "../../../input/InputID.h"
+#include "../../../Vector2/Vector2.h"
 #include "../Actor.h"
-
 enum class Button_Type
 {
 	Pen,
@@ -12,17 +14,26 @@ enum class Button_Type
 	Max,
 };
 
-
+using ButtonFlag=std::map<Button_Type, bool>;
 class EditButton :public Actor
 {
 public:
 	EditButton();
 	void Init();
-	void update();
+	void upDate();
 	void draw();
+	void changeButtonType();
+
+	// setter
+	void setMousePos(Position2 Pos_);
+
+	// getter
+	Button_Type GetBtnType();
 private:
 	std::vector<Button_Type> EditBtnType;
 	std::map<Button_Type,int> EditBtnHandle;
 	const int size;
+	Position2 mPos_;
+	Button_Type buttonMode;
 };
 

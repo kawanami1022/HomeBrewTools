@@ -1,6 +1,6 @@
 #include <DxLib.h>
 #include "EditButton.h"
-
+#include "../../../Collision2D/collision.h"
 void EditButton::Init()
 {
 	EditBtnType.emplace_back(Button_Type::Pen);
@@ -10,10 +10,12 @@ void EditButton::Init()
 					{Button_Type::Eraser,LoadGraph("UI/Eraser.png")},
 					{Button_Type::Box,LoadGraph("UI/fillBox_NonFill.png")},
 					{Button_Type::Box_Fill,LoadGraph("UI/fillBox.png")} };
+	buttonMode = Button_Type::Pen;
 }
 
-void EditButton::update()
+void EditButton::upDate()
 {
+
 }
 
 void EditButton::draw()
@@ -21,10 +23,43 @@ void EditButton::draw()
 	int count = 0;
 	for (auto btnID : EditBtnHandle)
 	{
+		SetDrawBright(0xff, 0xff, 0xff);
+		if (buttonMode != btnID.first)
+		{
+			SetDrawBright(0x44, 0x44, 0x44);
+		}
 		DrawGraph(0, size * count, btnID.second, true);
 		count++;
 	}
+	SetDrawBright(0xff, 0xff, 0xff);
 }
+
+void EditButton::changeButtonType()
+{
+	int mPos[2] = { mPos_.x,mPos_.y };
+	for (auto btnID : EditBtnHandle)
+	{
+		int edtBtnPos[2] = { 0,size * static_cast<int>(btnID.first) };
+		int edtBtnSize[2] = { size,size * static_cast<int>(btnID.first) + size };
+		if (checkPInRect(mPos, edtBtnPos, edtBtnSize))
+		{
+			buttonMode = btnID.first;
+			break;
+		}
+	}
+}
+
+void EditButton::setMousePos(Position2 mPos)
+{
+	mPos_ = mPos;
+}
+
+Button_Type EditButton::GetBtnType()
+{
+	return buttonMode;
+}
+
+
 
 EditButton::EditButton():size(32)
 {

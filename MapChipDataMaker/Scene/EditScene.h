@@ -13,19 +13,8 @@ public:
     void Draw();
     EditScene();
     ~EditScene();
-
-
-    Position2 ToolBoxPos;
-    Position2 ToolBoxSize;
-    Position2 ChipGraphPos;
-    Position2 ChipGraphSize;
-    Position2 mapChipPos;
-    Position2 mapChipSize;
-    Position2 ButtonPos;
-    Position2 ButtonSize;
-    Position2 RefDirPos;
-    Position2 RefDirSize;
     
+
 private:
     std::unique_ptr<EditButton> EdtBtn;
     bool sysInit();

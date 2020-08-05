@@ -12,7 +12,7 @@ public:
 
 	bool Setup() override;
 	ContType GetType(void) override;
-	Position2 getMousePos();
+	Position2 getMousePos(void) override;
 	int MouseInput_;
 	virtual bool Push(InputID)override;
 	virtual bool Sepatate(InputID)override;

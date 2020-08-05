@@ -41,6 +41,7 @@ struct controller
 	virtual bool Sepatate(InputID)=0;
 	virtual bool Release(InputID)=0;
 	virtual bool Hold(InputID)=0;
+	virtual Position2 getMousePos(void) = 0;
 protected:
 	Position2 pos;
 	CntData _data;

@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Collision2D\collision.cpp" />
     <ClCompile Include="input\keyInput.cpp" />
     <ClCompile Include="input\mouse.cpp" />
     <ClCompile Include="Obj\Actor\EditButton\EditButton.cpp" />
@@ -27,7 +28,6 @@
     <ClCompile Include="Obj\Actor\Actor.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
     <ClCompile Include="Scene\BaseScene.cpp" />
-    <ClCompile Include="Collision2D\collision2D.cpp" />
     <ClCompile Include="Geometry\Geometry.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\EditScene.cpp" />
@@ -36,6 +36,7 @@
     <ClCompile Include="_debug\_DebugDispOut.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collision2D\collision.h" />
     <ClInclude Include="input\controller.h" />
     <ClInclude Include="input\InputID.h" />
     <ClInclude Include="input\keyInput.h" />
@@ -48,7 +49,6 @@
     <ClInclude Include="Obj\Actor\Actor.h" />
     <ClInclude Include="Obj\Obj.h" />
     <ClInclude Include="Scene\BaseScene.h" />
-    <ClInclude Include="Collision2D\collision2D.h" />
     <ClInclude Include="Geometry\Geometry.h" />
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
