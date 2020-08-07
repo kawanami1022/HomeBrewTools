@@ -20,15 +20,15 @@ class EditButton :public Actor
 public:
 	EditButton();
 	void Init();
-	void upDate();
-	void draw();
+	void Update()override;
+	void Draw()override;
 	void changeButtonType();
 
 	// setter
 	void setMousePos(Position2 Pos_);
 
 	// getter
-	Button_Type GetBtnType();
+	Button_Type GetBtnMode();
 private:
 	std::vector<Button_Type> EditBtnType;
 	std::map<Button_Type,int> EditBtnHandle;

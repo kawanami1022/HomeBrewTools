@@ -13,12 +13,12 @@ void EditButton::Init()
 	buttonMode = Button_Type::Pen;
 }
 
-void EditButton::upDate()
+void EditButton::Update()
 {
 
 }
 
-void EditButton::draw()
+void EditButton::Draw()
 {
 	int count = 0;
 	for (auto btnID : EditBtnHandle)
@@ -54,7 +54,7 @@ void EditButton::setMousePos(Position2 mPos)
 	mPos_ = mPos;
 }
 
-Button_Type EditButton::GetBtnType()
+Button_Type EditButton::GetBtnMode()
 {
 	return buttonMode;
 }

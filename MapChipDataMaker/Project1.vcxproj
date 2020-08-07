@@ -19,6 +19,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="DxLibForHomeBrew\DxLib_Draw.cpp" />
+    <ClCompile Include="Obj\Actor\ChipDataView\ChipDataView.cpp" />
     <ClCompile Include="Collision2D\collision.cpp" />
     <ClCompile Include="input\keyInput.cpp" />
     <ClCompile Include="input\mouse.cpp" />
@@ -32,10 +34,13 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\EditScene.cpp" />
     <ClCompile Include="Scene\SceneController.cpp" />
+    <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp" />
     <ClCompile Include="_debug\_DebugConOut.cpp" />
     <ClCompile Include="_debug\_DebugDispOut.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DxLibForHomeBrew\DxLib_Draw.h" />
+    <ClInclude Include="Obj\Actor\ChipDataView\ChipDataView.h" />
     <ClInclude Include="Collision2D\collision.h" />
     <ClInclude Include="input\controller.h" />
     <ClInclude Include="input\InputID.h" />
@@ -52,9 +57,13 @@
     <ClInclude Include="Geometry\Geometry.h" />
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
+    <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />
     <ClInclude Include="Vector2\Vector2.h" />
     <ClInclude Include="_debug\_DebugConOut.h" />
     <ClInclude Include="_debug\_DebugDispOut.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\..\MyPixelAsset\size.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>

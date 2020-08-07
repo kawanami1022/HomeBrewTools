@@ -22,19 +22,24 @@ unique_Base EditScene::Input(unique_Base nowScene)
 
 unique_Base EditScene::upDate(unique_Base nowScene)
 {
+    chipDataView->Update();
     return std::move(nowScene);
 }
 
 void EditScene::Draw()
 {
     ClsDrawScreen();
-    EdtBtn->draw();
+    EdtBtn->Draw();
+    chipDataView->Draw();
     ScreenFlip();
 }
 
 bool EditScene::sysInit()
 {
-    EdtBtn=std::make_unique<EditButton>();
+    // ActorClass‰Šú‰»
+    EdtBtn = std::make_unique<EditButton>();
+    chipDataView = std::make_unique<ChipDataView>(Vector2I(32,32),Vector2I(12,6));
+
     input = std::make_unique<mouse>();
     input->Setup();
     return true;

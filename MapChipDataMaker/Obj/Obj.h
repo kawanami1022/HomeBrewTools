@@ -4,6 +4,7 @@
 class Obj
 {
 protected:
-	Vector2F *pos;
+	Position2 pos_;
+	Position2 offsetSize_;
 };
 
