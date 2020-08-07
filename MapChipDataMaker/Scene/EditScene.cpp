@@ -5,6 +5,8 @@
 #include <DxLib.h>
 #include "EditScene.h"
 #include "../Obj/Actor/EditButton/EditButton.h"
+
+// “ü—Í
 unique_Base EditScene::Input(unique_Base nowScene)
 {
     (*input)();

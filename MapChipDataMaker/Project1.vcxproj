@@ -35,6 +35,8 @@
     <ClCompile Include="Scene\EditScene.cpp" />
     <ClCompile Include="Scene\SceneController.cpp" />
     <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp" />
+    <ClCompile Include="Texture\Texture.cpp" />
+    <ClCompile Include="Texture\TextureFactory.cpp" />
     <ClCompile Include="_debug\_DebugConOut.cpp" />
     <ClCompile Include="_debug\_DebugDispOut.cpp" />
   </ItemGroup>
@@ -58,12 +60,11 @@
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
     <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />
+    <ClInclude Include="Texture\Texture.h" />
+    <ClInclude Include="Texture\TextureFactory.h" />
     <ClInclude Include="Vector2\Vector2.h" />
     <ClInclude Include="_debug\_DebugConOut.h" />
     <ClInclude Include="_debug\_DebugDispOut.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Image Include="..\..\MyPixelAsset\size.png" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
