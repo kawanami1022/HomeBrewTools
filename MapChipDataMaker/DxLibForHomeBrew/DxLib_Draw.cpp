@@ -10,3 +10,4 @@ void DxLib_Draw::DrawBoxLineEOff(int x, int y, int offset_x, int offset_y, int c
 {
 	DrawLineBox(x, y, x + offset_x, y + offset_y, color);
 }
+

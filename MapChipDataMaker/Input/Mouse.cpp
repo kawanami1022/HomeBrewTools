@@ -3,7 +3,9 @@
 
 void mouse::Update()
 {
-	GetMousePoint(&pos.x, &pos.y);
+	mousePos_[1] = mousePos_[0];
+	GetMousePoint(&mousePos_[0].x, &mousePos_[0].y);
+	mouseOffSize = mousePos_[1] - mousePos_[0];
 	MouseInput_ = GetMouseInput();
 	for (auto id: InputID())
 	{
@@ -27,9 +29,9 @@ ContType mouse::GetType(void)
 }
 
 
-Position2 mouse::getMousePos()
+TrgPos mouse::getMousePos()
 {
-	return pos;
+	return mousePos_;
 }
 
 bool mouse::Push(InputID id)
@@ -50,4 +52,9 @@ bool mouse::Release(InputID id)
 bool mouse::Hold(InputID id)
 {
 	return (_data[id][static_cast<int>(Trg::Old)] |= 0 && _data[id][static_cast<int>(Trg::Now)] != 0);;
+}
+
+Vector2 mouse::getMouseOffSize(void)
+{
+	return mouseOffSize;
 }

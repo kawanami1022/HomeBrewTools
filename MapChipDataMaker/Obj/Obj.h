@@ -6,6 +6,6 @@ class Obj
 protected:
 	Position2 pos_;
 	Position2 offsetSize_;
-	Vector2I size_;
+	Vector2 size_;
 };
 

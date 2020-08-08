@@ -22,6 +22,7 @@ enum class ContType
 
 using TrgBool = std::array<bool, static_cast<size_t>(Trg::Max)>;
 using CntData = std::map<InputID, TrgBool>;
+using TrgPos = std::array<Vector2, static_cast<size_t>(Trg::Max)>;
 
 struct controller
 {
@@ -35,23 +36,20 @@ struct controller
 		return _data;
 	}
 
+	TrgPos mousePos_;
+	Vector2 mouseOffSize;		// à⁄ìÆó 
 	virtual ContType GetType(void) = 0;
 	virtual bool Setup() = 0;	// ÉvÉåÅ[ÉÑÅ[ÇÃnumber
 	virtual bool Push(InputID)=0;
-	virtual bool Sepatate(InputID)=0;
-	virtual bool Release(InputID)=0;
-	virtual bool Hold(InputID)=0;
-	virtual Position2 getMousePos(void) = 0;
+	virtual bool Sepatate(InputID) = 0;
+	virtual bool Release(InputID) = 0;
+	virtual bool Hold(InputID) = 0;
+	virtual TrgPos getMousePos(void) = 0;
+	virtual Vector2 getMouseOffSize(void) = 0;
 protected:
 	Position2 pos;
 	CntData _data;
 
 private:
 	virtual void Update(void) = 0;
-
-
 };
-
-
-
-

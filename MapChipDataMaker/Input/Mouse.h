@@ -12,12 +12,13 @@ public:
 
 	bool Setup() override;
 	ContType GetType(void) override;
-	Position2 getMousePos(void) override;
+	TrgPos getMousePos(void) override;
 	int MouseInput_;
 	virtual bool Push(InputID)override;
 	virtual bool Sepatate(InputID)override;
 	virtual bool Release(InputID)override;
 	virtual bool Hold(InputID)override;
+	Vector2 getMouseOffSize(void);
 protected:
 	std::array<int, 3> _mouseData;
 	std::map<InputID, int> _mouseInputTbl;

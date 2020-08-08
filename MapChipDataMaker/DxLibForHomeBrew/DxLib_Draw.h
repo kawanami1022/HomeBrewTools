@@ -5,5 +5,4 @@ namespace DxLib_Draw
 	void DrawBoxEOff(int x, int y, int offset_x, int offset_y, int color, bool FillFlag);
 	void DrawBoxLineEOff(int x, int y, int offset_x, int offset_y, int color);
 
-
 }

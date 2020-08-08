@@ -9,10 +9,10 @@ public:
 
 	// getter
 	int GetGrHandle();
-	Vector2I GetSize();
+	Vector2 GetSize();
 private:
 
-	Vector2I Size_;
+	Vector2 Size_;
 	int GrHandle_;
 };
 

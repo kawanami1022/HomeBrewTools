@@ -16,7 +16,7 @@ int Texture::GetGrHandle()
 	return GrHandle_;
 }
 
-Vector2I Texture::GetSize()
+Vector2 Texture::GetSize()
 {
 	return Size_;
 }

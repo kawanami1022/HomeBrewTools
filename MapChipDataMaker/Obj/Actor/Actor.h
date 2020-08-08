@@ -1,6 +1,6 @@
 #pragma once
 #include "../Obj.h"
-
+#include "../../input/controller.h"
 class Actor :public Obj
 {
 public:

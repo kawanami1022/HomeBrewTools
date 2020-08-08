@@ -25,7 +25,7 @@ public:
 	void changeButtonType();
 
 	// setter
-	void setMousePos(Position2 Pos_);
+	void setMousePos(TrgPos Pos_);
 
 	// getter
 	Button_Type GetBtnMode();
@@ -33,7 +33,7 @@ private:
 	std::vector<Button_Type> EditBtnType;
 	std::map<Button_Type,int> EditBtnHandle;
 	const int size;
-	Position2 mPos_;
+	TrgPos mPos_;
 	Button_Type buttonMode;
 };
 

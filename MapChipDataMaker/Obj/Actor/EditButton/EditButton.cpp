@@ -36,7 +36,7 @@ void EditButton::Draw()
 
 void EditButton::changeButtonType()
 {
-	int mPos[2] = { mPos_.x,mPos_.y };
+	int mPos[2] = { mPos_[0].x,mPos_[0].y };
 	for (auto btnID : EditBtnHandle)
 	{
 		int edtBtnPos[2] = { 0,size * static_cast<int>(btnID.first) };
@@ -49,7 +49,7 @@ void EditButton::changeButtonType()
 	}
 }
 
-void EditButton::setMousePos(Position2 mPos)
+void EditButton::setMousePos(TrgPos mPos)
 {
 	mPos_ = mPos;
 }
