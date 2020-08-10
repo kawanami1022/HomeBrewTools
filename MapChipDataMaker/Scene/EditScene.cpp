@@ -27,6 +27,7 @@ unique_Base EditScene::upDate(unique_Base nowScene)
     chipDataView->Update();
     // setter
     chipDataView->SetMousePos(input->mousePos_);
+    chipDataView->SetMouseDiff(input->getMouseOffSize());
     return std::move(nowScene);
 }
 
