@@ -2,6 +2,7 @@
 #include <DxLib.h>
 #include "ChipDataView.h"
 #include "../../../DxLibForHomeBrew/DxLib_Draw.h"
+#include "../../../Collision2D/collision.h"
 
 ChipDataView::ChipDataView(Vector2 Size_, Vector2 GridCount):GridSize(Size_), GridCount(GridCount)
 {
@@ -15,6 +16,7 @@ ChipDataView::~ChipDataView()
 {
 
 }
+
 
 void ChipDataView::Update()
 {
@@ -40,7 +42,24 @@ void ChipDataView::Draw()
 		size_.x, size_.y, 0x888888);
 }
 
+void ChipDataView::PercentBox()
+{
+	int mousePos[2] = { mousePos_[static_cast<int>(Trg::Now)].x,mousePos_[static_cast<int>(Trg::Now)].y };
+	int percentButtonLU[2] = { pos_.x + size_.x - GrHandleList_[0]->GetSize().x,
+							pos_.y + size_.y - GrHandleList_[0]->GetSize().y };
+	int percentButtonRD[2] = { pos_.x + size_.x ,pos_.y + size_.y };
+	// percentbutton
+	if (checkPInRect(mousePos, percentButtonLU, percentButtonRD))
+	{
+	}
+}
+
 void ChipDataView::SetMousePos(TrgPos mousePos)
 {
 	mousePos_ = mousePos;
+}
+
+void ChipDataView::SetMouseDiff(Vector2 mouseDiff)
+{
+	mouseDiff_ = mouseDiff;
 }
