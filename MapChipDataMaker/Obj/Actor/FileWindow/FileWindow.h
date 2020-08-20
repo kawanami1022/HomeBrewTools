@@ -6,6 +6,7 @@
 #include "../Actor.h"
 #include "../../../Texture/TextureFactory.h"
 #include "../../../Texture/Texture.h"
+#include "../Button/Button.h"
 
 enum class BUTTON_TYPE
 {
@@ -25,5 +26,6 @@ private:
     std::list<std::string> txNmList_;       // ‰æ‘œ–¼‚ÌƒŠƒXƒg
     std::unique_ptr<TextureFactory> txFc_;  // ‰æ‘œ¶¬
     std::vector<SharTexture> texture_;
+    std::vector<Button> btn_;
 };
 
