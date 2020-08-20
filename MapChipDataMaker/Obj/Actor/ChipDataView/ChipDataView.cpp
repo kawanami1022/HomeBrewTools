@@ -17,6 +17,10 @@ ChipDataView::~ChipDataView()
 
 }
 
+void ChipDataView::Input()
+{
+}
+
 
 void ChipDataView::Update()
 {
@@ -27,8 +31,8 @@ void ChipDataView::Draw()
 {
 	for (int y = 0; y < GridCount.y; y++) {
 		for (int x = 0; x < GridCount.x; x++) {
-			DxLib_Draw::DrawBoxLineEOff(pos_.x+GridSize.x*x, pos_.y+GridSize.y*y,
-				GridSize.x, GridSize.y, 0xffffff);
+			DxLib_Draw::DrawBoxLineEOff(pos_.x+(GridSize.x*x)*Percent_/100, pos_.y+(GridSize.y*y) * Percent_ / 100,
+				GridSize.x * Percent_ / 100+1, GridSize.y * Percent_ / 100+1, 0xffffff);
 		}
 	}
 	DrawGraph(pos_.x + size_.x-GrHandleList_[0]->GetSize().x, 
@@ -51,6 +55,15 @@ void ChipDataView::PercentBox()
 	// percentbutton
 	if (checkPInRect(mousePos, percentButtonLU, percentButtonRD))
 	{
+		//Percent_? mouseDiff_.x<0
+		if (mouseDiff_.x < 0)
+		{
+			Percent_-=10;
+		}
+		else if (mouseDiff_.x > 0)
+		{
+			Percent_+=10;
+		}
 	}
 }
 

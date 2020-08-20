@@ -20,6 +20,7 @@ class EditButton :public Actor
 public:
 	EditButton();
 	void Init();
+	void Input()override;
 	void Update()override;
 	void Draw()override;
 	void changeButtonType();

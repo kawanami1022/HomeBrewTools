@@ -13,6 +13,10 @@ void EditButton::Init()
 	buttonMode = Button_Type::Pen;
 }
 
+void EditButton::Input()
+{
+}
+
 void EditButton::Update()
 {
 

@@ -5,7 +5,7 @@ void mouse::Update()
 {
 	mousePos_[1] = mousePos_[0];
 	GetMousePoint(&mousePos_[0].x, &mousePos_[0].y);
-	mouseOffSize = mousePos_[1] - mousePos_[0];
+	mouseOffSize = mousePos_[0]- mousePos_[1];
 	MouseInput_ = GetMouseInput();
 	for (auto id: InputID())
 	{

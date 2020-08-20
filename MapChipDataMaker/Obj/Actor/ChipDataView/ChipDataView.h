@@ -11,7 +11,7 @@ class ChipDataView :
 public:
     ChipDataView(Vector2 Size_, Vector2 GridCount);
     ~ChipDataView();
-
+    void Input()override;
     void Update()override;
     void Draw()override;
 
