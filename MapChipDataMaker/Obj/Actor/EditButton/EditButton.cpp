@@ -53,10 +53,6 @@ void EditButton::changeButtonType()
 	}
 }
 
-void EditButton::setMousePos(TrgPos mPos)
-{
-	mPos_ = mPos;
-}
 
 Button_Type EditButton::GetBtnMode()
 {

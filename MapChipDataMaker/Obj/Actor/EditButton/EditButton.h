@@ -25,8 +25,7 @@ public:
 	void Draw()override;
 	void changeButtonType();
 
-	// setter
-	void setMousePos(TrgPos Pos_);
+
 
 	// getter
 	Button_Type GetBtnMode();
@@ -34,7 +33,7 @@ private:
 	std::vector<Button_Type> EditBtnType;
 	std::map<Button_Type,int> EditBtnHandle;
 	const int size;
-	TrgPos mPos_;
+	
 	Button_Type buttonMode;
 };
 

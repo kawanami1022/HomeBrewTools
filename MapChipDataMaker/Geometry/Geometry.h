@@ -1,32 +1,40 @@
 #pragma once
 
-
-struct Rect
+template <class T >
+struct RectTmp
 {
-	int left;
-	int top;
-	int hight;
-	int width;
-	int Left()const
+	T left;
+	T top;
+	T hight;
+	T width;
+	T Left()const
 	{
 		return left;
 	}
-	int Top()const
+	T Top()const
 	{
 		return top;
 	}
-	int Right()const
+	T Right()const
 	{
 		return left + width;
 	}
-	int Buttom()const
+	T Buttom()const
 	{
 		return top + hight;
 	}
 };
 
+using Rect = RectTmp<int>;
+using RectS = RectTmp<short>;
+using RectL = RectTmp<long>;
+using RectF = RectTmp<float>;
+using RectD = RectTmp<double>;
+
+template <class T >
 struct Circle
 {
-	int x, y;
-	int radious;
+	T x, y;
+	T radious;
 };
+

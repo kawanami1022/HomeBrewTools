@@ -19,6 +19,7 @@ unique_Base EditScene::Input(unique_Base nowScene)
 
     if (input->Push(InputID::Left) == true)
     {
+        fileWindow_->setMousePos(input->getMousePos());
         EdtBtn_->setMousePos(input->getMousePos());
         EdtBtn_->changeButtonType();
     }
@@ -37,7 +38,7 @@ unique_Base EditScene::Input(unique_Base nowScene)
 unique_Base EditScene::upDate(unique_Base nowScene)
 {
     chipDataView_->Update();
-
+    fileWindow_->Update();
     return std::move(nowScene);
 }
 

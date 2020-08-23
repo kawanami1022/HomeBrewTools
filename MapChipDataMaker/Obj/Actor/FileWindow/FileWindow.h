@@ -3,6 +3,7 @@
 #include <vector>
 #include <memory>
 #include <string>
+#include <map>
 #include "../Actor.h"
 #include "../../../Texture/TextureFactory.h"
 #include "../../../Texture/Texture.h"
@@ -10,6 +11,7 @@
 
 enum class BUTTON_TYPE
 {
+    NON,
     SET_TEXTURE,
     MAX
 };
@@ -23,9 +25,10 @@ public:
     void Draw()override;
 
 private:
+    BUTTON_TYPE btnType_;    // Œ»İ‚Ì‘I‘ğ’†
     std::list<std::string> txNmList_;       // ‰æ‘œ–¼‚ÌƒŠƒXƒg
     std::unique_ptr<TextureFactory> txFc_;  // ‰æ‘œ¶¬
-    std::vector<SharTexture> texture_;
+    std::vector<SharTexture> textureList_;
     std::vector<Button> btn_;
 };
 
