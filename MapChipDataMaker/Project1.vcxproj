@@ -37,6 +37,7 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\EditScene.cpp" />
     <ClCompile Include="Scene\SceneController.cpp" />
+    <ClCompile Include="Obj\Actor\TextureBox\TextureBox.cpp" />
     <ClCompile Include="Texture\Texture.cpp" />
     <ClCompile Include="Texture\TextureFactory.cpp" />
     <ClCompile Include="_debug\_DebugConOut.cpp" />
@@ -56,6 +57,12 @@
     <ClInclude Include="Obj\Actor\EditButton\EditButton.h" />
     <ClInclude Include="FileControl\detail\FileControl.h" />
     <ClInclude Include="FileControl\FileControl.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\CONVERT_TXT.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\IMPORT_TXT.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\NON.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_GRAPH_SIZE.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_TEXTURE.h" />
     <ClInclude Include="Obj\Actor\mapChip.h" />
     <ClInclude Include="Obj\Actor\Actor.h" />
     <ClInclude Include="Obj\Obj.h" />
@@ -64,6 +71,7 @@
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
     <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />
+    <ClInclude Include="Obj\Actor\TextureBox\TextureBox.h" />
     <ClInclude Include="Texture\Texture.h" />
     <ClInclude Include="Texture\TextureFactory.h" />
     <ClInclude Include="Vector2\Vector2.h" />
