@@ -24,6 +24,9 @@ public:
     void Update()override;
     void Draw()override;
 
+    // “ü—Íˆ—
+    void changeButtonType();
+
 private:
     BUTTON_TYPE btnType_;    // Œ»İ‚Ì‘I‘ğ’†
     std::list<std::string> txNmList_;       // ‰æ‘œ–¼‚ÌƒŠƒXƒg

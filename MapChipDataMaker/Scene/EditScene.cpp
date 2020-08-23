@@ -19,9 +19,12 @@ unique_Base EditScene::Input(unique_Base nowScene)
 
     if (input->Push(InputID::Left) == true)
     {
-        fileWindow_->setMousePos(input->getMousePos());
+        // EditButton
         EdtBtn_->setMousePos(input->getMousePos());
         EdtBtn_->changeButtonType();
+        // FileWidow
+        fileWindow_->setMousePos(input->getMousePos());
+        fileWindow_->changeButtonType();
     }
     if (input->Hold(InputID::Left) == true)
     {

@@ -23,7 +23,7 @@
     <ClCompile Include="DxLibForHomeBrew\DxLib_Draw.cpp" />
     <ClCompile Include="Obj\Actor\FileWindow\FileWindow.cpp" />
     <ClCompile Include="Obj\Actor\ChipDataView\ChipDataView.cpp" />
-    <ClCompile Include="Collision2D\collision.cpp" />
+    <ClCompile Include="Collision2D\collision2D.cpp" />
     <ClCompile Include="input\keyInput.cpp" />
     <ClCompile Include="input\mouse.cpp" />
     <ClCompile Include="Obj\Actor\EditButton\EditButton.cpp" />
@@ -33,7 +33,7 @@
     <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
     <ClCompile Include="Scene\BaseScene.cpp" />
-    <ClCompile Include="Geometry\Geometry.cpp" />
+    <ClCompile Include="Geometry2D\Geometry2D.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\EditScene.cpp" />
     <ClCompile Include="Scene\SceneController.cpp" />
@@ -48,7 +48,7 @@
     <ClInclude Include="Obj\Actor\FileWindow\FileWindow.h" />
     <ClInclude Include="input\controller.h" />
     <ClInclude Include="Obj\Actor\ChipDataView\ChipDataView.h" />
-    <ClInclude Include="Collision2D\collision.h" />
+    <ClInclude Include="Collision2D\collision2D.h" />
     <ClInclude Include="input\InputID.h" />
     <ClInclude Include="input\keyInput.h" />
     <ClInclude Include="input\mouse.h" />
@@ -60,7 +60,7 @@
     <ClInclude Include="Obj\Actor\Actor.h" />
     <ClInclude Include="Obj\Obj.h" />
     <ClInclude Include="Scene\BaseScene.h" />
-    <ClInclude Include="Geometry\Geometry.h" />
+    <ClInclude Include="Geometry2D\Geometry2D.h" />
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
     <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />

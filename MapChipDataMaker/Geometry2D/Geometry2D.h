@@ -32,9 +32,15 @@ using RectF = RectTmp<float>;
 using RectD = RectTmp<double>;
 
 template <class T >
-struct Circle
+struct CircleTmp
 {
 	T x, y;
 	T radious;
 };
+
+using Circle = CircleTmp<int>;
+using CircleS = CircleTmp<short>;
+using CircleL = CircleTmp<long>;
+using CircleF = CircleTmp<float>;
+using CircleD = CircleTmp<double>;
 
