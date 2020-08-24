@@ -5,8 +5,8 @@ struct RectTmp
 {
 	T left;
 	T top;
-	T hight;
 	T width;
+	T hight;
 	T Left()const
 	{
 		return left;

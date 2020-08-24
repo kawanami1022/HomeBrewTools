@@ -1,5 +1,7 @@
+#include <iostream>
 #include <DxLib.h>
 #include "FileWindow.h"
+#include "../../../FileControl/FileControl.h"
 #include "../../../Vector2/Vector2.h"
 #include "../../../DxLibForHomeBrew/DxLib_Draw.h"
 #include "../../../input/controller.h"
@@ -72,11 +74,22 @@ void FileWindow::changeButtonType()
 	for (auto BTN_TYPE : btn_)
 	{
 		if (Collision2D::IsHitABB(mPos_[0], { BTN_TYPE.GetPos().x,BTN_TYPE.GetPos().y, 
-										textureList_[idx]->GetSize().y,textureList_[idx]->GetSize().x }))
+										textureList_[idx]->GetSize().x,textureList_[idx]->GetSize().y }))
 		{
 			btnType_ = static_cast<BUTTON_TYPE>(idx);
 		}
 		idx++;
 	}
 }
+
+void FileWindow::InputTextureDir()
+{
+
+}
+
+void FileWindow::InputDirTxtDir()
+{
+}
+
+
 
