@@ -7,6 +7,7 @@
 class EditButton;
 class ChipDataView;
 class FileWindow;
+class TextureBox;
 
 class EditScene :
     public BaseScene
@@ -23,6 +24,7 @@ private:
     std::unique_ptr<EditButton> EdtBtn_;
     std::unique_ptr<ChipDataView> chipDataView_;
     std::unique_ptr<FileWindow> fileWindow_;
+    std::unique_ptr<TextureBox> textureBox_;
     bool sysInit();
 };
 

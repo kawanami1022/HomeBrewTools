@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <DxLib.h>
 #include "FileWindow.h"
 #include "../../../FileControl/FileControl.h"
@@ -38,6 +39,7 @@ FileWindow::FileWindow()
 	upDt.try_emplace(BUTTON_TYPE::REMOVE_TEXTURE, REMOVE_TEXTURE());
 	upDt.try_emplace(BUTTON_TYPE::SET_GRAPH_SIZE, SET_GRAPH_SIZE());
 	upDt.try_emplace(BUTTON_TYPE::SET_TEXTURE, SET_TEXTURE());
+	frame = 0;
 }
 
 void FileWindow::Input()
@@ -47,7 +49,8 @@ void FileWindow::Input()
 
 void FileWindow::Update()
 {
-	upDt[btnType_](*this);
+	if (frame != 0)upDt[btnType_](*this);
+	frame++;
 }
 
 void FileWindow::Draw()
@@ -77,6 +80,7 @@ void FileWindow::changeButtonType()
 										textureList_[idx]->GetSize().x,textureList_[idx]->GetSize().y }))
 		{
 			btnType_ = static_cast<BUTTON_TYPE>(idx);
+			frame = 0;
 		}
 		idx++;
 	}
@@ -84,11 +88,20 @@ void FileWindow::changeButtonType()
 
 void FileWindow::InputTextureDir()
 {
-
+	std::string FileName;
+	std::cout << "please input Txture's directory" << std::endl;
+	std::cin >> FileName_;
+	txFcty_.GetTexture_(FileName_);
+	
 }
 
 void FileWindow::InputDirTxtDir()
 {
+}
+
+std::string FileWindow::GetTextureName()
+{
+	return FileName_;
 }
 
 

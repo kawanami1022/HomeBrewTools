@@ -23,6 +23,11 @@ void TextureBox::SetMousePos()
 {
 }
 
+void TextureBox::SetTexture(std::string FileName)
+{
+	TextureNmList_.push_back(FileName);
+}
+
 void TextureBox::SetTextureList(SharTexture texture)
 {
 }

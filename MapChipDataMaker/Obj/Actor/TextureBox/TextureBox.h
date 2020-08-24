@@ -15,9 +15,10 @@ public:
     void Update()override;
     void Draw()override;
     void SetMousePos();
+    void SetTexture(std::string);
     void SetTextureList(SharTexture texture);
 private:
-    std::list<std::string> TextureList_;
+    std::list<std::string> TextureNmList_;
     std::vector<SharTexture> txHdl_;
 };
 

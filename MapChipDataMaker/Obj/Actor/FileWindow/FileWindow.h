@@ -34,6 +34,8 @@ public:
     // ファイル座標入力
     void InputTextureDir();        // 画像ファイルのディレクトリを入力
     void InputDirTxtDir();         // 画像が保存されてるディレクトリ一覧テキストファイル
+
+    std::string GetTextureName();
 private:
     BUTTON_TYPE btnType_;    // 現在の選択中
     std::list<std::string> txNmList_;       // 画像名のリスト
@@ -41,6 +43,9 @@ private:
     std::vector<SharTexture> textureList_;
     std::vector<Button> btn_;
     std::map < BUTTON_TYPE, std::function<void(FileWindow&)>> upDt;
+    std::string FileName_;
+    int frame = 0;
+    TextureFactory txFcty_;
     friend class TextureBox;
     friend struct NON;
     friend struct IMPORT_TXT;

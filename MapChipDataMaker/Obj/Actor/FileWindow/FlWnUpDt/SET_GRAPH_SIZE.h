@@ -4,6 +4,5 @@ struct SET_GRAPH_SIZE
 {
 	void operator()(FileWindow& flWnd)
 	{
-		
 	}
 };

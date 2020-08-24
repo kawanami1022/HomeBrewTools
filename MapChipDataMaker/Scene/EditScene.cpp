@@ -8,6 +8,7 @@
 #include "../Obj/Actor/EditButton/EditButton.h"
 #include "../Obj/Actor/ChipDataView/ChipDataView.h"
 #include "../Obj/Actor/FileWindow/FileWindow.h"
+#include "../Obj/Actor/TextureBox/TextureBox.h"
 
 // “ü—Í
 unique_Base EditScene::Input(unique_Base nowScene)
@@ -25,6 +26,8 @@ unique_Base EditScene::Input(unique_Base nowScene)
         // FileWidow
         fileWindow_->setMousePos(input->getMousePos());
         fileWindow_->changeButtonType();
+        textureBox_->SetTexture(fileWindow_->GetTextureName());
+        
     }
     if (input->Hold(InputID::Left) == true)
     {
@@ -61,6 +64,7 @@ bool EditScene::sysInit()
     chipDataView_ = std::make_unique<ChipDataView>(Vector2(32,32),Vector2(12,6));
     fileWindow_ = std::make_unique<FileWindow>();
     input = std::make_unique<mouse>();
+    textureBox_ = std::make_unique<TextureBox>();
     input->Setup();
     return true;
 }
