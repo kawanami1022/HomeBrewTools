@@ -18,6 +18,8 @@ unique_Base EditScene::Input(unique_Base nowScene)
     {
     }
 
+
+
     if (input->Push(InputID::Left) == true)
     {
         // EditButton
@@ -26,13 +28,20 @@ unique_Base EditScene::Input(unique_Base nowScene)
         // FileWidow
         fileWindow_->setMousePos(input->getMousePos());
         fileWindow_->changeButtonType();
-        textureBox_->SetTexture(fileWindow_->GetTextureName());
-        
+
+        // TextureBox
+        textureBox_->setMousePos(input->getMousePos());
+        textureBox_->InMousePosIdnt();
+        // ChipDataView
+        chipDataView_->SetGridSize(textureBox_->GetTextureSize());
+
     }
     if (input->Hold(InputID::Left) == true)
     {
         chipDataView_->PercentBox();
     }
+
+
 
     // setter
     chipDataView_->SetMousePos(input->mousePos_);
@@ -45,6 +54,15 @@ unique_Base EditScene::upDate(unique_Base nowScene)
 {
     chipDataView_->Update();
     fileWindow_->Update();
+    
+
+    // ‰æ‘œ“Ç‚Ýž‚Ý
+    if ((*fileWindow_).GetButtonType() == BUTTON_TYPE::SET_TEXTURE)
+    {
+        fileWindow_->InputTextureDir();
+        textureBox_->SetTexture(fileWindow_->GetTextureName());
+        fileWindow_->SetTextureName(BUTTON_TYPE::NON);
+    }
     return std::move(nowScene);
 }
 
@@ -54,6 +72,7 @@ void EditScene::Draw()
     EdtBtn_->Draw();
     chipDataView_->Draw();
     fileWindow_->Draw();
+    textureBox_->Draw();
     ScreenFlip();
 }
 

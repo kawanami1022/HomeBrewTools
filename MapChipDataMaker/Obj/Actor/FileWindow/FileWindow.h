@@ -34,8 +34,10 @@ public:
     // ファイル座標入力
     void InputTextureDir();        // 画像ファイルのディレクトリを入力
     void InputDirTxtDir();         // 画像が保存されてるディレクトリ一覧テキストファイル
-
+    BUTTON_TYPE GetButtonType();
     std::string GetTextureName();
+
+    void SetTextureName(BUTTON_TYPE);
 private:
     BUTTON_TYPE btnType_;    // 現在の選択中
     std::list<std::string> txNmList_;       // 画像名のリスト

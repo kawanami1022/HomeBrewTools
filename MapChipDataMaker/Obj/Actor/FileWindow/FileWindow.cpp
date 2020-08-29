@@ -49,7 +49,7 @@ void FileWindow::Input()
 
 void FileWindow::Update()
 {
-	if (frame != 0)upDt[btnType_](*this);
+	upDt[btnType_](*this);
 	frame++;
 }
 
@@ -77,13 +77,15 @@ void FileWindow::changeButtonType()
 	for (auto BTN_TYPE : btn_)
 	{
 		if (Collision2D::IsHitABB(mPos_[0], { BTN_TYPE.GetPos().x,BTN_TYPE.GetPos().y, 
-										textureList_[idx]->GetSize().x,textureList_[idx]->GetSize().y }))
+										textureList_[idx]->GetSize().x,
+										textureList_[idx]->GetSize().y }))
 		{
 			btnType_ = static_cast<BUTTON_TYPE>(idx);
 			frame = 0;
 		}
 		idx++;
 	}
+	mPos_[0] = { 0,0 };
 }
 
 void FileWindow::InputTextureDir()
@@ -91,7 +93,6 @@ void FileWindow::InputTextureDir()
 	std::string FileName;
 	std::cout << "please input Txture's directory" << std::endl;
 	std::cin >> FileName_;
-	txFcty_.GetTexture_(FileName_);
 	
 }
 
@@ -99,10 +100,21 @@ void FileWindow::InputDirTxtDir()
 {
 }
 
+BUTTON_TYPE FileWindow::GetButtonType()
+{
+	return btnType_;
+}
+
 std::string FileWindow::GetTextureName()
 {
 	return FileName_;
 }
+
+void FileWindow::SetTextureName(BUTTON_TYPE btnType)
+{
+	btnType_ = btnType;
+}
+
 
 
 
