@@ -20,9 +20,9 @@ enum class ContType
 	Max
 };
 
-using TrgBool = std::array<bool, static_cast<size_t>(Trg::Max)>;
+using TrgBool = std::array<bool, static_cast<int>(Trg::Max)>;
 using CntData = std::map<InputID, TrgBool>;
-using TrgPos = std::array<Vector2, static_cast<size_t>(Trg::Max)>;
+using TrgPos = std::array<Vector2, static_cast<int>(Trg::Max)>;
 
 struct controller
 {

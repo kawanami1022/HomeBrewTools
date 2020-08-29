@@ -18,9 +18,6 @@
     <ClCompile Include="main.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Geometry\Geometry.cpp">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Scene\SceneController.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -57,9 +54,6 @@
     <ClCompile Include="input\mouse.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="Collision2D\collision.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
     <ClCompile Include="Obj\Actor\ChipDataView\ChipDataView.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
@@ -75,11 +69,23 @@
     <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
+    <ClCompile Include="Obj\Actor\FileWindow\FileWindow.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj\Actor\Button\Button.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Geometry2D\Geometry2D.cpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Collision2D\collision2D.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
+    <ClCompile Include="Obj\Actor\TextureBox\TextureBox.cpp">
+      <Filter>ソース ファイル</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Geometry\Geometry.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Scene\SceneController.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -125,9 +131,6 @@
     <ClInclude Include="input\mouseID.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Collision2D\collision.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Obj\Actor\ChipDataView\ChipDataView.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -147,6 +150,39 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="input\controller.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FileWindow.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\Button\Button.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Geometry2D\Geometry2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Collision2D\collision2D.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\TextureBox\TextureBox.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_TEXTURE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\IMPORT_TXT.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\CONVERT_TXT.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_GRAPH_SIZE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\NON.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>

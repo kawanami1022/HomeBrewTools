@@ -20,12 +20,12 @@ class EditButton :public Actor
 public:
 	EditButton();
 	void Init();
+	void Input()override;
 	void Update()override;
 	void Draw()override;
 	void changeButtonType();
 
-	// setter
-	void setMousePos(TrgPos Pos_);
+
 
 	// getter
 	Button_Type GetBtnMode();
@@ -33,7 +33,7 @@ private:
 	std::vector<Button_Type> EditBtnType;
 	std::map<Button_Type,int> EditBtnHandle;
 	const int size;
-	TrgPos mPos_;
+	
 	Button_Type buttonMode;
 };
 

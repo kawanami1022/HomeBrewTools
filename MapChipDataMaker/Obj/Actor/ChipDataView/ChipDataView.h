@@ -11,10 +11,10 @@ class ChipDataView :
 public:
     ChipDataView(Vector2 Size_, Vector2 GridCount);
     ~ChipDataView();
-
     void Input()override;
     void Update()override;
     void Draw()override;
+    
 
     // input
     void PercentBox();
@@ -22,13 +22,15 @@ public:
     // setter
     void SetMousePos(TrgPos);
     void SetMouseDiff(Vector2);
+    void SetGridSize(Vector2);
 private:
     TextureFactory texFactory_;
     std::vector<SharTexture> GrHandleList_;
-    const Vector2 GridSize;
+    Vector2 GridSize_;
     const Vector2 GridCount;
     int Percent_;
     TrgPos mousePos_;
     Vector2 mouseDiff_;
+
 };
 

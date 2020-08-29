@@ -22,8 +22,8 @@ int SceneController::Run()
 	// ƒ‹[ƒv
 	while (ProcessMessage() == 0)
 	{
-		nowScene=nowScene->Input(std::move(nowScene));
 		nowScene=nowScene->upDate(std::move(nowScene));
+		nowScene=nowScene->Input(std::move(nowScene));
 		nowScene->Draw();
 		// ‰æ–Ê‚ð‰Šú‰»‚·‚é
 	}

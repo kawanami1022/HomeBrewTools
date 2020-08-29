@@ -19,9 +19,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Obj\Actor\Button\Button.cpp" />
     <ClCompile Include="DxLibForHomeBrew\DxLib_Draw.cpp" />
+    <ClCompile Include="Obj\Actor\FileWindow\FileWindow.cpp" />
     <ClCompile Include="Obj\Actor\ChipDataView\ChipDataView.cpp" />
-    <ClCompile Include="Collision2D\collision.cpp" />
+    <ClCompile Include="Collision2D\collision2D.cpp" />
     <ClCompile Include="input\keyInput.cpp" />
     <ClCompile Include="input\mouse.cpp" />
     <ClCompile Include="Obj\Actor\EditButton\EditButton.cpp" />
@@ -31,20 +33,23 @@
     <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
     <ClCompile Include="Scene\BaseScene.cpp" />
-    <ClCompile Include="Geometry\Geometry.cpp" />
+    <ClCompile Include="Geometry2D\Geometry2D.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Scene\EditScene.cpp" />
     <ClCompile Include="Scene\SceneController.cpp" />
+    <ClCompile Include="Obj\Actor\TextureBox\TextureBox.cpp" />
     <ClCompile Include="Texture\Texture.cpp" />
     <ClCompile Include="Texture\TextureFactory.cpp" />
     <ClCompile Include="_debug\_DebugConOut.cpp" />
     <ClCompile Include="_debug\_DebugDispOut.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Obj\Actor\Button\Button.h" />
     <ClInclude Include="DxLibForHomeBrew\DxLib_Draw.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FileWindow.h" />
     <ClInclude Include="input\controller.h" />
     <ClInclude Include="Obj\Actor\ChipDataView\ChipDataView.h" />
-    <ClInclude Include="Collision2D\collision.h" />
+    <ClInclude Include="Collision2D\collision2D.h" />
     <ClInclude Include="input\InputID.h" />
     <ClInclude Include="input\keyInput.h" />
     <ClInclude Include="input\mouse.h" />
@@ -52,14 +57,21 @@
     <ClInclude Include="Obj\Actor\EditButton\EditButton.h" />
     <ClInclude Include="FileControl\detail\FileControl.h" />
     <ClInclude Include="FileControl\FileControl.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\CONVERT_TXT.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\IMPORT_TXT.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\NON.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_GRAPH_SIZE.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_TEXTURE.h" />
     <ClInclude Include="Obj\Actor\mapChip.h" />
     <ClInclude Include="Obj\Actor\Actor.h" />
     <ClInclude Include="Obj\Obj.h" />
     <ClInclude Include="Scene\BaseScene.h" />
-    <ClInclude Include="Geometry\Geometry.h" />
+    <ClInclude Include="Geometry2D\Geometry2D.h" />
     <ClInclude Include="Scene\EditScene.h" />
     <ClInclude Include="Scene\SceneController.h" />
     <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />
+    <ClInclude Include="Obj\Actor\TextureBox\TextureBox.h" />
     <ClInclude Include="Texture\Texture.h" />
     <ClInclude Include="Texture\TextureFactory.h" />
     <ClInclude Include="Vector2\Vector2.h" />
@@ -146,11 +158,13 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(DXLIB_DIR);</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\DxLib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXLIB_DIR);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -161,11 +175,13 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(DXLIB_DIR);</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\DxLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXLIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -178,13 +194,15 @@
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>$(DXLIB_DIR);</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\DxLib</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXLIB_DIR);</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -197,13 +215,15 @@
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(DXLIB_DIR);</AdditionalIncludeDirectories>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
-      <AdditionalLibraryDirectories>C:\DxLib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(DXLIB_DIR);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

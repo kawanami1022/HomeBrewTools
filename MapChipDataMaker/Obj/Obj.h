@@ -1,6 +1,7 @@
 #pragma once
 #include "../Vector2/Vector2.h"
-
+#define SCREEN_SIZE_X 1200
+#define SCREEN_SIZE_Y 800
 class Obj
 {
 protected:

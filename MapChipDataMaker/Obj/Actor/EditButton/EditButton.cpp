@@ -1,6 +1,6 @@
 #include <DxLib.h>
 #include "EditButton.h"
-#include "../../../Collision2D/collision.h"
+#include "../../../Collision2D/collision2D.h"
 void EditButton::Init()
 {
 	EditBtnType.emplace_back(Button_Type::Pen);
@@ -11,6 +11,10 @@ void EditButton::Init()
 					{Button_Type::Box,LoadGraph("UI/fillBox_NonFill.png")},
 					{Button_Type::Box_Fill,LoadGraph("UI/fillBox.png")} };
 	buttonMode = Button_Type::Pen;
+}
+
+void EditButton::Input()
+{
 }
 
 void EditButton::Update()
@@ -36,23 +40,17 @@ void EditButton::Draw()
 
 void EditButton::changeButtonType()
 {
-	int mPos[2] = { mPos_[0].x,mPos_[0].y };
 	for (auto btnID : EditBtnHandle)
 	{
-		int edtBtnPos[2] = { 0,size * static_cast<int>(btnID.first) };
-		int edtBtnSize[2] = { size,size * static_cast<int>(btnID.first) + size };
-		if (checkPInRect(mPos, edtBtnPos, edtBtnSize))
+		if (Collision2D::IsHitABB({ mPos_[0].x,mPos_[0].y }, 
+			{ 0, size * static_cast<int>(btnID.first), size, size }))
 		{
 			buttonMode = btnID.first;
-			break;
+				break;
 		}
 	}
 }
 
-void EditButton::setMousePos(TrgPos mPos)
-{
-	mPos_ = mPos;
-}
 
 Button_Type EditButton::GetBtnMode()
 {
