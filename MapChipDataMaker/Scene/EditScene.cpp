@@ -34,7 +34,8 @@ unique_Base EditScene::Input(unique_Base nowScene)
         textureBox_->InMousePosIdnt();
         // ChipDataView
         chipDataView_->SetGridSize(textureBox_->GetTextureSize());
-
+        chipDataView_->SetSlTxNum(textureBox_->GetSlTxNum());
+        chipDataView_->EditChipData();
     }
 
     
@@ -50,7 +51,6 @@ unique_Base EditScene::Input(unique_Base nowScene)
     // setter
     chipDataView_->SetMousePos(input->mousePos_);
     chipDataView_->SetMouseDiff(input->getMouseOffSize());
-
     return std::move(nowScene);
 }
 

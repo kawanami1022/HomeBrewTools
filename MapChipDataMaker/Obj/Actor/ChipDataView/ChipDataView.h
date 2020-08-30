@@ -1,12 +1,13 @@
 #pragma once
 #include <functional>
 #include <vector>
-#include "../../../Vector2/Vector2.h"
-#include "../Actor.h"
 #include "../../../Texture/TextureFactory.h"
 #include "../../../Texture/Texture.h"
+#include "../Actor.h"
 #include "../TextureBox/TextureBox.h"
 #include "../EditButton/EditButton.h"
+//#include "../../../Vector2/Vector2.h"
+
 
 class ChipDataView :
     public Actor
@@ -26,7 +27,7 @@ public:
     void SetMousePos(TrgPos);
     void SetMouseDiff(Vector2);
     void SetGridSize(Vector2);
-
+    void SetSlTxNum(int);
     //init
     void InitChipData();
     void InitChipDataBoxFunc();
@@ -40,7 +41,7 @@ private:
     Vector2 GridSize_;
     Vector2 GridCount_;          // XYのグリッド数
     int Percent_;
-    
+    int SlTxNum_;               // 選択中texture
     TrgPos mousePos_;
     Vector2 mouseDiff_;
 

@@ -7,6 +7,7 @@
 #include "BUTTON_TYPE/BUTTON_TYPE_BOX_FILL.h"
 #include "BUTTON_TYPE/BUTTON_TYPE_ERASE.h"
 #include "BUTTON_TYPE/BUTTON_TYPE_PEN.h"
+#include "../../../Vector2/Vector2.h"
 
 ChipDataView::ChipDataView(Vector2 Size_, Vector2 GridCount):GridSize_(Size_), GridCount_(GridCount)
 {
@@ -40,7 +41,12 @@ void ChipDataView::Update()
 // chipDataを編集する
 void ChipDataView::EditChipData()
 {
-	chipDataBoxFunc[buttonMode_]((*this));
+	if(Collision2D::IsHitABB(mousePos_[0], { pos_.x,pos_.y,
+										GridSize_.x * GridCount_.x * Percent_ / 100 + 1,
+										GridSize_.y * GridCount_.y * Percent_ / 100 + 1 }))
+	{
+		chipDataBoxFunc[buttonMode_]((*this));
+	}
 }
 
 void ChipDataView::Draw()
@@ -60,6 +66,12 @@ void ChipDataView::Draw()
 
 	DxLib_Draw::DrawBoxLineEOff(pos_.x, pos_.y,
 		size_.x, size_.y, 0x888888);
+
+
+	// chipData編集用の当たり判定デバッグ表示
+	//DxLib_Draw::DrawBoxLineEOff(pos_.x, pos_.y,
+	//	GridSize_.x * GridCount_.x * Percent_ / 100 + 1,
+	//	GridSize_.y * GridCount_.y * Percent_ / 100 + 1, 0x00ff00);
 }
 
 void ChipDataView::DrawImage(TextureBox& TxBox)
@@ -70,9 +82,10 @@ void ChipDataView::DrawImage(TextureBox& TxBox)
 	for (int y = 0; y < GridCount_.y; y++) {
 		for (int x = 0; x < GridCount_.x; x++) {
 			// GridDataが0の時描画させない
-			if(GridData_[x][y]!=0)
+			if (GridData_[y][x] != 0)
 			DxLib_Draw::DrawExGraphEOff(pos_.x + (GridSize_.x * x) * Percent_ / 100, pos_.y + (GridSize_.y * y) * Percent_ / 100,
-				GridSize_.x * Percent_ / 100 + 1, GridSize_.y * Percent_ / 100 + 1, TxBox.txHdl_[GridData_[x][y]]->GetGrHandle());
+				GridSize_.x * Percent_ / 100 + 1, GridSize_.y * Percent_ / 100 + 1, TxBox.txHdl_[GridData_[y][x]]->GetGrHandle());
+
 		}
 	}
 }
@@ -111,19 +124,25 @@ void ChipDataView::SetGridSize(Vector2 TextureSize)
 	GridSize_ = TextureSize;
 }
 
+void ChipDataView::SetSlTxNum(int SlTxNum)
+{
+	SlTxNum_ = SlTxNum;
+}
+
 void ChipDataView::InitChipData()
 {
-	GridDataBase_.reserve(GridSize_.x * GridSize_.y);
-	for (int i = 0; i < GridSize_.y; i++)
-	{
-		GridData_.push_back(
-			&GridDataBase_[i * GridSize_.x]);
-	}
+	GridDataBase_.reserve(GridCount_.x * GridCount_.y);
 	// 0に初期化させる
 	for (int y = 0; y < GridCount_.y; y++) {
 		for (int x = 0; x < GridCount_.x; x++) {
 			GridDataBase_.emplace_back(0);
 		}
+	}
+
+	for (int i = 0; i < GridCount_.y; i++)
+	{
+		GridData_.emplace_back(
+			&GridDataBase_[i * GridCount_.x]);
 	}
 }
 

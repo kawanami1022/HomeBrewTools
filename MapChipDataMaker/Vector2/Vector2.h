@@ -206,6 +206,13 @@ inline bool Vector2Tmp<T>::operator<(Vector2Tmp& vec2)
 {
 	return false;
 }
+
+template<class T>
+inline bool Vector2Tmp<T>::operator<=(Vector2Tmp& vec2)
+{
+	return((this->x <= vec2.x) || (this->y <= vec2.y));;
+}
+
 template<class T>
 Vector2Tmp<T> operator+(const Vector2Tmp<T>& vec2, Vector2Tmp<T> vec2_)
 {
