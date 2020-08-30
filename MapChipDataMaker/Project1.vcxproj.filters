@@ -185,5 +185,17 @@
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\NON.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_BOX.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_BOX_FILL.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_ERASE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_PEN.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

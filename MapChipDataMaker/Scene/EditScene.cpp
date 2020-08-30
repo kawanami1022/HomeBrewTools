@@ -36,8 +36,12 @@ unique_Base EditScene::Input(unique_Base nowScene)
         chipDataView_->SetGridSize(textureBox_->GetTextureSize());
 
     }
+
+    
+
     if (input->Hold(InputID::Left) == true)
     {
+        chipDataView_->EditChipData();
         chipDataView_->PercentBox();
     }
 
@@ -60,7 +64,10 @@ unique_Base EditScene::upDate(unique_Base nowScene)
     if ((*fileWindow_).GetButtonType() == BUTTON_TYPE::SET_TEXTURE)
     {
         fileWindow_->InputTextureDir();
-        textureBox_->SetTexture(fileWindow_->GetTextureName());
+        if (textureBox_->SetTexture(fileWindow_->GetTextureName()))
+        {
+
+        }
         fileWindow_->SetTextureName(BUTTON_TYPE::NON);
     }
     return std::move(nowScene);
@@ -71,6 +78,7 @@ void EditScene::Draw()
     ClsDrawScreen();
     EdtBtn_->Draw();
     chipDataView_->Draw();
+    chipDataView_->DrawImage((*textureBox_));
     fileWindow_->Draw();
     textureBox_->Draw();
     ScreenFlip();

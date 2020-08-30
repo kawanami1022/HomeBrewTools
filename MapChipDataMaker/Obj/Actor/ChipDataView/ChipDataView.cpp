@@ -3,14 +3,23 @@
 #include "ChipDataView.h"
 #include "../../../DxLibForHomeBrew/DxLib_Draw.h"
 #include "../../../Collision2D/collision2D.h"
+#include "BUTTON_TYPE/BUTTON_TYPE_BOX.h"
+#include "BUTTON_TYPE/BUTTON_TYPE_BOX_FILL.h"
+#include "BUTTON_TYPE/BUTTON_TYPE_ERASE.h"
+#include "BUTTON_TYPE/BUTTON_TYPE_PEN.h"
 
-ChipDataView::ChipDataView(Vector2 Size_, Vector2 GridCount):GridSize_(Size_), GridCount(GridCount)
+ChipDataView::ChipDataView(Vector2 Size_, Vector2 GridCount):GridSize_(Size_), GridCount_(GridCount)
 {
 	pos_ = { 32,0 };
 	size_ = { 850,800 };
 	GrHandleList_.push_back(texFactory_.GetTexture_("UI/size.png"));
 	Percent_ = 100;
 	GridSize_ = { 0,0 };
+	buttonMode_ = Button_Type::Pen;		// ペンツールに初期化しておく
+	//
+	InitChipData();
+	InitChipDataBoxFunc();
+
 }
 
 ChipDataView::~ChipDataView()
@@ -28,10 +37,16 @@ void ChipDataView::Update()
 
 }
 
+// chipDataを編集する
+void ChipDataView::EditChipData()
+{
+	chipDataBoxFunc[buttonMode_]((*this));
+}
+
 void ChipDataView::Draw()
 {
-	for (int y = 0; y < GridCount.y; y++) {
-		for (int x = 0; x < GridCount.x; x++) {
+	for (int y = 0; y < GridCount_.y; y++) {
+		for (int x = 0; x < GridCount_.x; x++) {
 			DxLib_Draw::DrawBoxLineEOff(pos_.x+(GridSize_.x*x)*Percent_/100, pos_.y+(GridSize_.y*y) * Percent_ / 100,
 				GridSize_.x * Percent_ / 100+1, GridSize_.y * Percent_ / 100+1, 0xffffff);
 		}
@@ -45,6 +60,21 @@ void ChipDataView::Draw()
 
 	DxLib_Draw::DrawBoxLineEOff(pos_.x, pos_.y,
 		size_.x, size_.y, 0x888888);
+}
+
+void ChipDataView::DrawImage(TextureBox& TxBox)
+{
+	// Griddataのサイズが0の時終了
+	if (GridData_.size() == 0)return;
+
+	for (int y = 0; y < GridCount_.y; y++) {
+		for (int x = 0; x < GridCount_.x; x++) {
+			// GridDataが0の時描画させない
+			if(GridData_[x][y]!=0)
+			DxLib_Draw::DrawExGraphEOff(pos_.x + (GridSize_.x * x) * Percent_ / 100, pos_.y + (GridSize_.y * y) * Percent_ / 100,
+				GridSize_.x * Percent_ / 100 + 1, GridSize_.y * Percent_ / 100 + 1, TxBox.txHdl_[GridData_[x][y]]->GetGrHandle());
+		}
+	}
 }
 
 void ChipDataView::PercentBox()
@@ -79,4 +109,29 @@ void ChipDataView::SetMouseDiff(Vector2 mouseDiff)
 void ChipDataView::SetGridSize(Vector2 TextureSize)
 {
 	GridSize_ = TextureSize;
+}
+
+void ChipDataView::InitChipData()
+{
+	GridDataBase_.reserve(GridSize_.x * GridSize_.y);
+	for (int i = 0; i < GridSize_.y; i++)
+	{
+		GridData_.push_back(
+			&GridDataBase_[i * GridSize_.x]);
+	}
+	// 0に初期化させる
+	for (int y = 0; y < GridCount_.y; y++) {
+		for (int x = 0; x < GridCount_.x; x++) {
+			GridDataBase_.emplace_back(0);
+		}
+	}
+}
+
+void ChipDataView::InitChipDataBoxFunc()
+{
+	chipDataBoxFunc.try_emplace(Button_Type::Pen, BUTTON_TYPE_PEN());
+	chipDataBoxFunc.try_emplace(Button_Type::Eraser, BUTTON_TYPE_ERASE());
+	chipDataBoxFunc.try_emplace(Button_Type::Box, BUTTON_TYPE_BOX());
+	chipDataBoxFunc.try_emplace(Button_Type::Box_Fill, BUTTON_TYPE_BOX_FILL());
+
 }

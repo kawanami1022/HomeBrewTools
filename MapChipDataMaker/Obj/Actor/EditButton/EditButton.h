@@ -3,7 +3,6 @@
 #include <map>
 #include <vector>
 #include "../../../input/InputID.h"
-#include "../../../Vector2/Vector2.h"
 #include "../Actor.h"
 enum class Button_Type
 {
