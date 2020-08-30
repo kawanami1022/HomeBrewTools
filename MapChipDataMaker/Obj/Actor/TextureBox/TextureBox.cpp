@@ -9,10 +9,13 @@
 
 TextureBox::TextureBox()
 {
-	SlTxNum_ = 0;
+	SlTxNum_ = 1;
 	pos_ = Vector2(32 + 850, 220);
 	TextureSize_ = { 0,0 };
 	TextureCount_ = { 0,0 };
+	//0の添え字何も描画させたくないので0を入れておく
+	txHdl_.emplace_back(nullptr);
+	txPos_.emplace_back(Vector2(0, 0));
 }
 
 void TextureBox::Input()
@@ -30,10 +33,12 @@ void TextureBox::Draw()
 	int idx = 0;
 	for (auto TXHDL : txHdl_)
 	{
+		if(!(txHdl_.size()<=1)&&idx>0)
 		DrawGraph(txPos_[idx].x, txPos_[idx].y, TXHDL->GetGrHandle(), true);
 		idx++;
 	}
-	if (txHdl_.size() > 0)
+	// slTxNumが0の時は描画させない
+	if (txHdl_.size() > 1&& SlTxNum_!=0)
 		DxLib_Draw::DrawBoxLineEOff(txPos_[SlTxNum_].x, txPos_[SlTxNum_].y,
 			txHdl_[SlTxNum_]->GetSize().x, txHdl_[SlTxNum_]->GetSize().y, 0x00ff00);
 }
@@ -41,16 +46,17 @@ void TextureBox::Draw()
 //マウスの座標で識別
 void TextureBox::InMousePosIdnt()
 {
+
+
 	Vector2 MousePos = mPos_[0] - pos_;
 	if (MousePos < 0)return;
 	Vector2 Size = TextureCount_;
 	Vector2 BlockPos = MousePos / TextureSize_;
-	if ( BlockPos< Size)
+	int TmpNum=BlockPos.x + BlockPos.y * Size.x;
+
+	if (TmpNum < txHdl_.size())
 	{
-		if (BlockPos.x + BlockPos.y * Size.x < txHdl_.size() - 1)
-		{
-			SlTxNum_ = BlockPos.x + BlockPos.y * Size.x;
-		}
+		SlTxNum_ = BlockPos.x + BlockPos.y * Size.x;
 	}
 
 }
@@ -64,23 +70,29 @@ Vector2 TextureBox::GetTextureSize()
 
 int TextureBox::GetSlTxNum()
 {
-	return 0;
+	return SlTxNum_;
 }
 
-void TextureBox::SetTexture(std::string FileName)
+SharTexture TextureBox::GetTxHdl()
+{
+	return txHdl_[txHdl_.size()];
+}
+
+bool TextureBox::SetTexture(std::string FileName)
 {
 	
 	if (FileName == "")
 	{
 		std::cout << "failed load texture!" << std::endl;
-		return;
+		return false;
 	}
 	auto shTx = txFcty_.GetTexture_(FileName);
 	if (shTx->GetGrHandle() == -1)
 	{
 		std::cout << "failed load texture!" << std::endl;
-		return;
+		return false;
 	}
+
 	auto it = TextureNmList_.find(FileName);
 	if (it == TextureNmList_.end())
 	{
@@ -97,5 +109,6 @@ void TextureBox::SetTexture(std::string FileName)
 		TextureCount_.x++;
 	}
 	std::cout << "successed load texture!" << std::endl;
+	return true;
 }
 

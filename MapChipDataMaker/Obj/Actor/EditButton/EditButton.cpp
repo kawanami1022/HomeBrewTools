@@ -1,5 +1,6 @@
 #include <DxLib.h>
 #include "EditButton.h"
+#include "../../../Vector2/Vector2.h"
 #include "../../../Collision2D/collision2D.h"
 void EditButton::Init()
 {

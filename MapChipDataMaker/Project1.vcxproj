@@ -46,6 +46,10 @@
   <ItemGroup>
     <ClInclude Include="Obj\Actor\Button\Button.h" />
     <ClInclude Include="DxLibForHomeBrew\DxLib_Draw.h" />
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_BOX.h" />
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_BOX_FILL.h" />
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_ERASE.h" />
+    <ClInclude Include="Obj\Actor\ChipDataView\BUTTON_TYPE\BUTTON_TYPE_PEN.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FileWindow.h" />
     <ClInclude Include="input\controller.h" />
     <ClInclude Include="Obj\Actor\ChipDataView\ChipDataView.h" />
