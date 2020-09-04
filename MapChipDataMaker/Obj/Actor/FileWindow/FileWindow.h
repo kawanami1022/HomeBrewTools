@@ -9,7 +9,7 @@
 #include "../../../Texture/TextureFactory.h"
 #include "../../../Texture/Texture.h"
 #include "../Button/Button.h"
-
+#include "../ChipDataView/ChipDataView.h"
 enum class BUTTON_TYPE
 {
     NON,
@@ -37,7 +37,12 @@ public:
     BUTTON_TYPE GetButtonType();
     std::string GetTextureName();
 
-    void SetTextureName(BUTTON_TYPE);
+    std::string GetConsoleInputFileName();
+    bool ConvertMapDtForTxt(ChipDataView& chipDtVw);
+    bool ConvertTxBoxDtForTxt(TextureBox& txBox);
+
+    void SetButtonType(BUTTON_TYPE);
+    void SetChipDtVw(ChipDataView&);
 private:
     BUTTON_TYPE btnType_;    // åªç›ÇÃëIëíÜ
     std::list<std::string> txNmList_;       // âÊëúñºÇÃÉäÉXÉg
@@ -48,6 +53,9 @@ private:
     std::string FileName_;
     int frame = 0;
     TextureFactory txFcty_;
+    std::vector<int*> mapData_;
+
+    friend class ChipDataView;
     friend class TextureBox;
     friend struct NON;
     friend struct IMPORT_TXT;

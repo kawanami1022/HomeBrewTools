@@ -4,6 +4,6 @@ struct CONVERT_TXT
 {
 	void operator()(FileWindow& flWnd)
 	{
-
+		flWnd.GetConsoleInputFileName();
 	}
 };

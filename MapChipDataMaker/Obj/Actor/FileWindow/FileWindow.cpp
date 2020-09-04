@@ -110,10 +110,56 @@ std::string FileWindow::GetTextureName()
 	return FileName_;
 }
 
-void FileWindow::SetTextureName(BUTTON_TYPE btnType)
+std::string FileWindow::GetConsoleInputFileName()
+{
+	std::string FileName;
+	std::cout << "please Input MapData txt FileName!" << std::endl;
+	std::cin >> FileName;
+
+	return FileName;
+}
+
+bool FileWindow::ConvertMapDtForTxt(ChipDataView& chipDtVw)
+{
+	std::string FileName;
+	std::cout << "please Input MapData txt FileName!" << std::endl;
+	std::cin >> FileName;
+	if (fileControl::GenerateMapData(chipDtVw.GridCount_.x, chipDtVw.GridCount_.y, chipDtVw.GridDataBase_.data(), FileName))
+	{
+		std::cout << "Successed Converted txt" << std::endl;
+		return true;
+	}
+	std::cout << "Failed Converted txt" << std::endl;
+	return false;
+}
+
+bool FileWindow::ConvertTxBoxDtForTxt(TextureBox& txBox)
+{
+	
+	std::string FileName;
+	std::cout << "please Input Directry txt FileName!" << std::endl;
+	std::cin >> FileName;
+
+	std::list <std::string> list_(txBox.TextureNmList_.begin(), txBox.TextureNmList_.end());
+	if (fileControl::WriteString(FileName, list_))
+	{
+		std::cout << "Successed Converted txt" << std::endl;
+		return true;
+	}
+	return false;
+}
+
+
+void FileWindow::SetButtonType(BUTTON_TYPE btnType)
 {
 	btnType_ = btnType;
 }
+
+void FileWindow::SetChipDtVw(ChipDataView& chipDtVw)
+{
+	mapData_ = chipDtVw.GridData_;
+}
+
 
 
 

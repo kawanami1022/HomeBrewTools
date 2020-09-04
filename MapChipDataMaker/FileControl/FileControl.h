@@ -12,7 +12,13 @@ namespace fileControl
 	//		:std::string FileName		ファイル名
 	int GetLineString(int lineSize, std::string* lineString, std::string FileName);
 
-	bool GenerateMapData(int* x, int* y, std::string FileName);
+
+	//目的	:マップデータを書きだす
+	bool GenerateMapData(int x, int y, int * mapData, std::string FileName);
+
+	//目的	:stringの文字列をtxtファイルに保存する
+	bool WriteString(std::string FileName, std::list<std::string> lineString);
+
 
 	//目的	:x軸y軸それぞれのチップ数を求める
 	//入力	:T *x

@@ -6,8 +6,6 @@
 #include "../Actor.h"
 #include "../TextureBox/TextureBox.h"
 #include "../EditButton/EditButton.h"
-//#include "../../../Vector2/Vector2.h"
-
 
 class ChipDataView :
     public Actor
@@ -20,6 +18,7 @@ public:
     void EditChipData();
     void Draw()override;
     void DrawImage(TextureBox&);
+
     // input
     void PercentBox();
 
@@ -28,6 +27,7 @@ public:
     void SetMouseDiff(Vector2);
     void SetGridSize(Vector2);
     void SetSlTxNum(int);
+    void SetButtonMode(Button_Type);
     //init
     void InitChipData();
     void InitChipDataBoxFunc();
@@ -46,6 +46,8 @@ private:
     Vector2 mouseDiff_;
 
     Button_Type buttonMode_;
+    friend class ChipDataView;
+    friend class FileWindow;
 
     friend struct BUTTON_TYPE_PEN;
     friend struct BUTTON_TYPE_BOX;

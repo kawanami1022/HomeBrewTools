@@ -23,12 +23,47 @@ int fileControl::GetLineString(int lineSize, std::string* lineString, std::strin
 	return 0;
 }
 
-bool fileControl::GenerateMapData(int* x, int* y, std::string FileName)
+bool fileControl::GenerateMapData(int size_x, int size_y, int * mapData, std::string FileName)
 {
-	std::fstream fs(FileName);
-	if (!fs)
+	std::string searchName = ".txt";
+	auto it = FileName.find(searchName);
+	if (it == std::string::basic_string::npos)return false;
+	if (size_x <= 0 || size_y <= 0)return false;
+
+	std::ofstream ofs(FileName);
+	if (!ofs)
 	{
+		return false;
 	}
-	
-	return false;
+	int idx = 0;
+	for (int y = 0; y < size_y; y++)
+	{
+		for (int x = 0; x < size_x; x++)
+		{
+			ofs << mapData[idx] << ",";
+			idx++;
+		}
+		ofs << "\n";
+	}
+
+	return true;
+
+}
+
+bool fileControl::WriteString(std::string FileName, std::list <std::string> lineString)
+{
+
+	std::string searchName = ".txt";
+	auto it = FileName.find(searchName);
+	if (it == std::string::basic_string::npos)return false;
+
+	std::ofstream ofs(FileName);
+
+	for (auto&& LineString : lineString)
+	{
+		ofs << LineString << std::endl;
+	}
+
+
+	return true;
 }

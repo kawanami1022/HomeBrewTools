@@ -50,6 +50,8 @@ void TextureBox::InMousePosIdnt()
 
 	Vector2 MousePos = mPos_[0] - pos_;
 	if (MousePos < 0)return;
+	if (TextureSize_.x == 0 || TextureSize_.y == 0)return;
+
 	Vector2 Size = TextureCount_;
 	Vector2 BlockPos = MousePos / TextureSize_;
 	int TmpNum=BlockPos.x + BlockPos.y * Size.x;
@@ -86,6 +88,7 @@ bool TextureBox::SetTexture(std::string FileName)
 		std::cout << "failed load texture!" << std::endl;
 		return false;
 	}
+
 	auto shTx = txFcty_.GetTexture_(FileName);
 	if (shTx->GetGrHandle() == -1)
 	{

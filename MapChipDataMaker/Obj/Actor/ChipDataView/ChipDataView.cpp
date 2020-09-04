@@ -1,6 +1,7 @@
 #include <iostream>
 #include <DxLib.h>
 #include "ChipDataView.h"
+#include "../../../FileControl/FileControl.h"
 #include "../../../DxLibForHomeBrew/DxLib_Draw.h"
 #include "../../../Collision2D/collision2D.h"
 #include "BUTTON_TYPE/BUTTON_TYPE_BOX.h"
@@ -68,10 +69,6 @@ void ChipDataView::Draw()
 		size_.x, size_.y, 0x888888);
 
 
-	// chipData編集用の当たり判定デバッグ表示
-	//DxLib_Draw::DrawBoxLineEOff(pos_.x, pos_.y,
-	//	GridSize_.x * GridCount_.x * Percent_ / 100 + 1,
-	//	GridSize_.y * GridCount_.y * Percent_ / 100 + 1, 0x00ff00);
 }
 
 void ChipDataView::DrawImage(TextureBox& TxBox)
@@ -129,13 +126,20 @@ void ChipDataView::SetSlTxNum(int SlTxNum)
 	SlTxNum_ = SlTxNum;
 }
 
+void ChipDataView::SetButtonMode(Button_Type btnType)
+{
+	buttonMode_ = btnType;
+}
+
 void ChipDataView::InitChipData()
 {
-	GridDataBase_.reserve(GridCount_.x * GridCount_.y);
+	int idx = 0;
+	GridDataBase_.reserve(static_cast<size_t>(GridCount_.x * GridCount_.y));
 	// 0に初期化させる
 	for (int y = 0; y < GridCount_.y; y++) {
 		for (int x = 0; x < GridCount_.x; x++) {
 			GridDataBase_.emplace_back(0);
+			idx++;
 		}
 	}
 
@@ -143,6 +147,7 @@ void ChipDataView::InitChipData()
 	{
 		GridData_.emplace_back(
 			&GridDataBase_[i * GridCount_.x]);
+
 	}
 }
 

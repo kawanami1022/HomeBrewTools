@@ -28,7 +28,6 @@
     <ClCompile Include="input\mouse.cpp" />
     <ClCompile Include="Obj\Actor\EditButton\EditButton.cpp" />
     <ClCompile Include="FileControl\FileControl.cpp" />
-    <ClCompile Include="Obj\Actor\mapChip.cpp" />
     <ClCompile Include="Obj\Actor\Actor.cpp" />
     <ClCompile Include="Obj\Actor\SetConsole\SetConsole.cpp" />
     <ClCompile Include="Obj\Obj.cpp" />
@@ -67,12 +66,12 @@
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_GRAPH_SIZE.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_TEXTURE.h" />
-    <ClInclude Include="Obj\Actor\mapChip.h" />
     <ClInclude Include="Obj\Actor\Actor.h" />
     <ClInclude Include="Obj\Obj.h" />
     <ClInclude Include="Scene\BaseScene.h" />
     <ClInclude Include="Geometry2D\Geometry2D.h" />
     <ClInclude Include="Scene\EditScene.h" />
+    <ClInclude Include="Scene\EditScene\SET_TEXTURE.h" />
     <ClInclude Include="Scene\SceneController.h" />
     <ClInclude Include="Obj\Actor\SetConsole\SetConsole.h" />
     <ClInclude Include="Obj\Actor\TextureBox\TextureBox.h" />

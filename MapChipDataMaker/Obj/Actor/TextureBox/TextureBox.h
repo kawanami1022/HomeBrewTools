@@ -36,4 +36,5 @@ private:
     Vector2 TextureCount_;
 
     friend class ChipDataView;
+    friend class FileWindow;
 };

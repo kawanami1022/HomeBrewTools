@@ -26,15 +26,18 @@ unique_Base EditScene::Input(unique_Base nowScene)
         EdtBtn_->setMousePos(input->getMousePos());
         EdtBtn_->changeButtonType();
         // FileWidow
+        fileWindow_->SetChipDtVw((*chipDataView_));
         fileWindow_->setMousePos(input->getMousePos());
         fileWindow_->changeButtonType();
 
         // TextureBox
         textureBox_->setMousePos(input->getMousePos());
         textureBox_->InMousePosIdnt();
+
         // ChipDataView
         chipDataView_->SetGridSize(textureBox_->GetTextureSize());
         chipDataView_->SetSlTxNum(textureBox_->GetSlTxNum());
+        chipDataView_->SetButtonMode(EdtBtn_->GetBtnMode());
         chipDataView_->EditChipData();
     }
 
@@ -57,19 +60,27 @@ unique_Base EditScene::Input(unique_Base nowScene)
 unique_Base EditScene::upDate(unique_Base nowScene)
 {
     chipDataView_->Update();
-    fileWindow_->Update();
     
 
     // ‰æ‘œ“Ç‚Ýž‚Ý
-    if ((*fileWindow_).GetButtonType() == BUTTON_TYPE::SET_TEXTURE)
+    if (fileWindow_->GetButtonType() == BUTTON_TYPE::SET_TEXTURE)
     {
         fileWindow_->InputTextureDir();
         if (textureBox_->SetTexture(fileWindow_->GetTextureName()))
         {
 
         }
-        fileWindow_->SetTextureName(BUTTON_TYPE::NON);
+        fileWindow_->SetButtonType(BUTTON_TYPE::NON);
     }
+
+    // ‰æ‘œ“Ç‚Ýž‚Ý
+    if (fileWindow_->GetButtonType() == BUTTON_TYPE::CONVERT_TXT)
+    {
+        if (fileWindow_->ConvertMapDtForTxt((*chipDataView_)))
+        {fileWindow_->ConvertTxBoxDtForTxt((*textureBox_));}
+        fileWindow_->SetButtonType(BUTTON_TYPE::NON);
+    }
+
     return std::move(nowScene);
 }
 
