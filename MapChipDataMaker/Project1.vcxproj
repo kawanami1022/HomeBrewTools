@@ -61,7 +61,7 @@
     <ClInclude Include="FileControl\detail\FileControl.h" />
     <ClInclude Include="FileControl\FileControl.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\CONVERT_TXT.h" />
-    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\IMPORT_TXT.h" />
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\DIV_TEXTURE.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\NON.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h" />
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\SET_GRAPH_SIZE.h" />

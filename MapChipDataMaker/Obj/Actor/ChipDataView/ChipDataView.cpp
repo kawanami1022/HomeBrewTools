@@ -54,7 +54,8 @@ void ChipDataView::Draw()
 {
 	for (int y = 0; y < GridCount_.y; y++) {
 		for (int x = 0; x < GridCount_.x; x++) {
-			DxLib_Draw::DrawBoxLineEOff(pos_.x+(GridSize_.x*x)*Percent_/100, pos_.y+(GridSize_.y*y) * Percent_ / 100,
+			DxLib_Draw::DrawBoxLineEOff(
+				pos_.x+(GridSize_.x*x)*Percent_/100, pos_.y+(GridSize_.y*y) * Percent_ / 100,
 				GridSize_.x * Percent_ / 100+1, GridSize_.y * Percent_ / 100+1, 0xffffff);
 		}
 	}

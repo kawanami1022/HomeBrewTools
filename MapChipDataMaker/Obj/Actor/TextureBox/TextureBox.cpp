@@ -38,7 +38,7 @@ void TextureBox::Draw()
 		idx++;
 	}
 	// slTxNum‚ª0‚ÌŽž‚Í•`‰æ‚³‚¹‚È‚¢
-	if (txHdl_.size() > 1&& SlTxNum_!=0)
+	if (txHdl_.size() > 1&& SlTxNum_!=0&& SlTxNum_!= txHdl_.size())
 		DxLib_Draw::DrawBoxLineEOff(txPos_[SlTxNum_].x, txPos_[SlTxNum_].y,
 			txHdl_[SlTxNum_]->GetSize().x, txHdl_[SlTxNum_]->GetSize().y, 0x00ff00);
 }
@@ -58,10 +58,21 @@ void TextureBox::InMousePosIdnt()
 
 	if (TmpNum < txHdl_.size())
 	{
-		SlTxNum_ = BlockPos.x + BlockPos.y * Size.x;
+		SlTxNum_ = SlTxNum_ < 0 ?  0 : TmpNum + 1;
 	}
-
 }
+
+void TextureBox::DivTexture()
+{
+	int x;
+	int y;
+	std::cout << "plaease input X num" << std::endl;
+	std::cin>> x;
+	std::cout << "plaease input Y num" << std::endl;
+	std::cin>> y;
+	txFcty_.CreateDivTexture_(TextureNmList_[1], x, y);
+}
+
 
 
 // TextureSizeŽæ“¾
@@ -96,21 +107,26 @@ bool TextureBox::SetTexture(std::string FileName)
 		return false;
 	}
 
-	auto it = TextureNmList_.find(FileName);
-	if (it == TextureNmList_.end())
+
+	TextureNmList_.emplace_back(FileName);
+	txHdl_.emplace_back(shTx);
+	if (pos_.x + txHdl_.back()->GetSize().x * (txHdl_.size() - 1) > SCREEN_SIZE_X)
 	{
-		TextureNmList_.emplace(FileName);
-		txHdl_.emplace_back(shTx);
-		if (pos_.x + txHdl_.back()->GetSize().x * (txHdl_.size() - 1) > SCREEN_SIZE_X)
-		{
-			pos_.y += STCI(txHdl_.size());
-			TextureCount_.x = 0;
-			TextureCount_.y++;
-		}
-		txPos_.emplace_back(Position2(pos_.x+ txHdl_.back()->GetSize().x * (txHdl_.size() - 1), pos_.y));
-		TextureSize_ = txHdl_.back()->GetSize();
-		TextureCount_.x++;
+		pos_.y += STCI(txHdl_.size());
+		TextureCount_.x = 0;
+		TextureCount_.y++;
 	}
+		
+
+	txPos_.emplace_back(Position2(pos_.x+ txHdl_.back()->GetSize().x * (txHdl_.size() - 2), pos_.y));
+
+	TextureSize_ = txHdl_.back()->GetSize();
+	TextureCount_.x++;
+	//if (SCREEN_SIZE_Y < pos_.x+ txHdl_.back()->GetSize().x)
+	//{
+	//	pos_.x = 32 + 850;
+	//	pos_.y += txHdl_.back()->GetSize().y;
+	//}
 	std::cout << "successed load texture!" << std::endl;
 	return true;
 }

@@ -81,6 +81,12 @@ unique_Base EditScene::upDate(unique_Base nowScene)
         fileWindow_->SetButtonType(BUTTON_TYPE::NON);
     }
 
+    // ‰æ‘œ•ªŠ„
+    if (fileWindow_->GetButtonType() == BUTTON_TYPE::DIV_TEXTURE)
+    {
+        textureBox_->DivTexture();
+
+    }
     return std::move(nowScene);
 }
 

@@ -15,8 +15,8 @@ enum class BUTTON_TYPE
     NON,
     SET_TEXTURE,
     REMOVE_TEXTURE,
+    DIV_TEXTURE,
     CONVERT_TXT,
-    IMPORT_TXT,
     SET_GRAPH_SIZE,
     MAX
 };
@@ -37,6 +37,7 @@ public:
     BUTTON_TYPE GetButtonType();
     std::string GetTextureName();
 
+    //CONVERT_TXT
     std::string GetConsoleInputFileName();
     bool ConvertMapDtForTxt(ChipDataView& chipDtVw);
     bool ConvertTxBoxDtForTxt(TextureBox& txBox);
@@ -58,7 +59,7 @@ private:
     friend class ChipDataView;
     friend class TextureBox;
     friend struct NON;
-    friend struct IMPORT_TXT;
+    friend struct DIV_TEXTURE;
     friend struct CONVERT_TXT;
     friend struct REMOVE_TEXTURE;
     friend struct SET_GRAPH_SIZE;

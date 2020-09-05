@@ -18,6 +18,9 @@ public:
     //マウスの座標で識別
     void InMousePosIdnt();
 
+    // 画像を分割する
+    void DivTexture();
+
     // Getter
     Vector2 GetTextureSize();
     int GetSlTxNum();   // 選択中textureを取得
@@ -29,7 +32,7 @@ public:
 private:
     TextureFactory txFcty_;
     int SlTxNum_;
-    std::set<std::string> TextureNmList_;
+    std::vector<std::string> TextureNmList_;
     std::vector<SharTexture> txHdl_;        // mapChip用画像ハンドル
     std::vector<Position2> txPos_;
     Vector2 TextureSize_;

@@ -167,9 +167,6 @@
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\REMOVE_TEXTURE.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\IMPORT_TXT.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\CONVERT_TXT.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
@@ -192,6 +189,9 @@
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
     <ClInclude Include="Scene\EditScene\SET_TEXTURE.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="Obj\Actor\FileWindow\FlWnUpDt\DIV_TEXTURE.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
