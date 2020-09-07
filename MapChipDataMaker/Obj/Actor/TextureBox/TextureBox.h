@@ -37,6 +37,7 @@ private:
     std::vector<Position2> txPos_;
     Vector2 TextureSize_;
     Vector2 TextureCount_;
+    Position2 setPos_;
 
     friend class ChipDataView;
     friend class FileWindow;

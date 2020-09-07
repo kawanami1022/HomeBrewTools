@@ -42,6 +42,8 @@ void ChipDataView::Update()
 // chipData‚ð•ÒW‚·‚é
 void ChipDataView::EditChipData()
 {
+	if (mousePos_[0].x > 32 + 850)return;
+
 	if(Collision2D::IsHitABB(mousePos_[0], { pos_.x,pos_.y,
 										GridSize_.x * GridCount_.x * Percent_ / 100 + 1,
 										GridSize_.y * GridCount_.y * Percent_ / 100 + 1 }))

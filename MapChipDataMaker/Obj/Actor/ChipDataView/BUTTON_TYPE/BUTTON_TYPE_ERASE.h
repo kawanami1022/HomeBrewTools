@@ -6,10 +6,18 @@ struct BUTTON_TYPE_ERASE
 	{
 		Position2 tmpMPos = chDtView.mousePos_[0] - chDtView.pos_;		// マウスの座標
 		Position2 GridPos;
-		GridPos.x = STCI(tmpMPos.x / static_cast<float>((chDtView.GridSize_.x * (chDtView.Percent_ / 100))));			// グリッド座標
-		GridPos.y = STCI(tmpMPos.y / static_cast<float>((chDtView.GridSize_.y * (chDtView.Percent_ / 100))));			// グリッド座標
+		GridPos.x = STCI(tmpMPos.x / static_cast<float>((chDtView.GridSize_.x * (chDtView.Percent_ / 100.f))));			// グリッド座標
+		GridPos.y = STCI(tmpMPos.y / static_cast<float>((chDtView.GridSize_.y * (chDtView.Percent_ / 100.f))));			// グリッド座標
 
-		if (chDtView.GridCount_ <= GridPos)return;
-		chDtView.GridData_[GridPos.y][GridPos.x] = 0;
+
+		try
+		{
+			if (chDtView.GridCount_ <= GridPos)return;
+
+			chDtView.GridData_[GridPos.y][GridPos.x] = 0;
+		}catch(...)
+		{
+			std::cout << "Access violation!!" << std::endl;
+		}
 	}
 };

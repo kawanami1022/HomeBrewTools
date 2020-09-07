@@ -16,6 +16,7 @@ TextureBox::TextureBox()
 	//0‚Ì“Y‚¦Žš‰½‚à•`‰æ‚³‚¹‚½‚­‚È‚¢‚Ì‚Å0‚ð“ü‚ê‚Ä‚¨‚­
 	txHdl_.emplace_back(nullptr);
 	txPos_.emplace_back(Vector2(0, 0));
+	TextureNmList_.push_back("");
 }
 
 void TextureBox::Input()
@@ -64,13 +65,41 @@ void TextureBox::InMousePosIdnt()
 
 void TextureBox::DivTexture()
 {
-	int x;
-	int y;
-	std::cout << "plaease input X num" << std::endl;
-	std::cin>> x;
-	std::cout << "plaease input Y num" << std::endl;
-	std::cin>> y;
-	txFcty_.CreateDivTexture_(TextureNmList_[1], x, y);
+
+	int x, y;
+	if (TextureNmList_.size() > 1)
+	{
+
+		std::cout << "plaease input width num" << std::endl;
+		std::cin>> x;
+		std::cout << "plaease input hight num" << std::endl;
+		std::cin>> y;
+		auto shTx = txFcty_.CreateDivTexture_(TextureNmList_[1], x, y);
+		txHdl_.erase(txHdl_.begin() + 1);			// delete the first one Handle
+		txPos_.erase(txPos_.begin() + 1);
+		setPos_ = pos_;
+		for (auto&& SHTX : shTx)
+		{
+			txHdl_.emplace_back(SHTX);
+			if (txPos_.size() > 1)
+			{
+				setPos_.x += txHdl_.back()->GetSize().x;
+				if (SCREEN_SIZE_X < setPos_.x)
+				{	setPos_.x = pos_.x;
+					setPos_.y += txHdl_.back()->GetSize().y;
+					TextureCount_.y++;
+					TextureCount_.x = 0;
+				}
+				TextureCount_.x++;
+			}
+			txPos_.emplace_back(setPos_);
+
+			TextureSize_ = txHdl_.back()->GetSize();
+		}
+	}
+	else {
+		std::cout << "Non Texture" << std::endl;
+	}
 }
 
 
@@ -122,11 +151,7 @@ bool TextureBox::SetTexture(std::string FileName)
 
 	TextureSize_ = txHdl_.back()->GetSize();
 	TextureCount_.x++;
-	//if (SCREEN_SIZE_Y < pos_.x+ txHdl_.back()->GetSize().x)
-	//{
-	//	pos_.x = 32 + 850;
-	//	pos_.y += txHdl_.back()->GetSize().y;
-	//}
+
 	std::cout << "successed load texture!" << std::endl;
 	return true;
 }
