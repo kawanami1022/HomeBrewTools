@@ -109,6 +109,41 @@ void ChipDataView::PercentBox()
 	}
 }
 
+Vector2 ChipDataView::ChangeTileSize()
+{
+	Vector2 tmp;
+	std::cout << "Please width Grid count" << std::endl;
+	std::cin >> tmp.x;
+
+	std::cout << "Please height Grid count" << std::endl;
+	std::cin >> tmp.y;
+
+	if (tmp <= 0)
+	{
+		std::cout << "failed change TileSize" << std::endl;
+		return Vector2();
+	}
+
+	GridDataBase_.clear();
+	GridData_.clear();
+	GridCount_ = tmp;
+
+	GridDataBase_.reserve(static_cast<size_t>(GridCount_.x * GridCount_.y));
+	for (int y = 0; y < GridCount_.y; y++) {
+		for (int x = 0; x < GridCount_.x; x++) {
+			GridDataBase_.emplace_back(0);
+		}
+	}
+
+	for (int i = 0; i < GridCount_.y; i++)
+	{
+		GridData_.emplace_back(
+			&GridDataBase_[i * GridCount_.x]);
+	}
+	std::cout << "Successd change TileSize" << std::endl;
+	return Vector2();
+}
+
 void ChipDataView::SetMousePos(TrgPos mousePos)
 {
 	mousePos_ = mousePos;

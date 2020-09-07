@@ -22,6 +22,8 @@ public:
     // input
     void PercentBox();
 
+    Vector2 ChangeTileSize();
+
     // setter
     void SetMousePos(TrgPos);
     void SetMouseDiff(Vector2);

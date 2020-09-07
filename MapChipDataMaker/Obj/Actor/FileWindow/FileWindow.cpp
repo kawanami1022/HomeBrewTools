@@ -27,7 +27,7 @@ FileWindow::FileWindow()
 					"UI/RemoveTexture.png",
 					"UI/DIV_TEXTURE.png",
 					"UI/CONVERT_TXT.png", 
-					"UI/SET_GRAPH_SIZE.png"};
+					"UI/CHANGE_GRID_SIZE.png"};
 
 	for (auto&& TXLIST : txNmList_)
 	{textureList_.emplace_back(txFc_->GetTexture_(TXLIST));}
@@ -44,7 +44,7 @@ FileWindow::FileWindow()
 	upDt.try_emplace(BUTTON_TYPE::REMOVE_TEXTURE, REMOVE_TEXTURE());
 	upDt.try_emplace(BUTTON_TYPE::DIV_TEXTURE, DIV_TEXTURE());
 	upDt.try_emplace(BUTTON_TYPE::CONVERT_TXT, CONVERT_TXT());
-	upDt.try_emplace(BUTTON_TYPE::SET_GRAPH_SIZE, SET_GRAPH_SIZE());
+	upDt.try_emplace(BUTTON_TYPE::CHANGE_TILE_SIZE, SET_GRAPH_SIZE());
 	frame = 0;
 }
 
@@ -154,6 +154,8 @@ bool FileWindow::ConvertTxBoxDtForTxt(TextureBox& txBox)
 	}
 	return false;
 }
+
+
 
 
 void FileWindow::SetButtonType(BUTTON_TYPE btnType)

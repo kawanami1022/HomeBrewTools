@@ -87,6 +87,12 @@ unique_Base EditScene::upDate(unique_Base nowScene)
         textureBox_->DivTexture();
         fileWindow_->SetButtonType(BUTTON_TYPE::NON);
     }
+    // change tile size
+    if (fileWindow_->GetButtonType() == BUTTON_TYPE::CHANGE_TILE_SIZE)
+    {
+        chipDataView_->ChangeTileSize();
+        fileWindow_->SetButtonType(BUTTON_TYPE::NON);
+    }
     return std::move(nowScene);
 }
 

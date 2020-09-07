@@ -1,1 +1,0 @@
-mapchip/blockImage_03.png

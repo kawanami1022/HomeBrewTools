@@ -17,7 +17,7 @@ enum class BUTTON_TYPE
     REMOVE_TEXTURE,
     DIV_TEXTURE,
     CONVERT_TXT,
-    SET_GRAPH_SIZE,
+    CHANGE_TILE_SIZE,
     MAX
 };
 
