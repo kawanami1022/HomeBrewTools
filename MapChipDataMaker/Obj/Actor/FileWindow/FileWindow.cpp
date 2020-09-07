@@ -26,7 +26,7 @@ FileWindow::FileWindow()
 	txNmList_ = { "","UI/SetTexture.png",
 					"UI/RemoveTexture.png",
 					"UI/DIV_TEXTURE.png",
-					"UI/IMPORT.png", 
+					"UI/CONVERT_TXT.png", 
 					"UI/SET_GRAPH_SIZE.png"};
 
 	for (auto&& TXLIST : txNmList_)

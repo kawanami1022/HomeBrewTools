@@ -36,6 +36,9 @@ void TextureBox::Draw()
 	{
 		if(!(txHdl_.size()<=1)&&idx>0)
 		DrawGraph(txPos_[idx].x, txPos_[idx].y, TXHDL->GetGrHandle(), true);
+		if(idx>1)
+			DxLib_Draw::DrawBoxLineEOff(txPos_[idx].x, txPos_[idx].y,
+				TXHDL->GetSize().x, TXHDL->GetSize().y, 0x008888);
 		idx++;
 	}
 	// slTxNum‚ª0‚ÌŽž‚Í•`‰æ‚³‚¹‚È‚¢
